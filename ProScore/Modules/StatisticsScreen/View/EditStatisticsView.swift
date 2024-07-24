@@ -9,6 +9,7 @@ import SwiftUI
 
 struct EditStatisticsView: View {
     
+    @ObservedObject var viewModel: StatisticsViewModel
     @Environment(\.presentationMode) var presentationMode
     @State private var wins: String = ""
     @State private var losses: String = ""
@@ -17,7 +18,7 @@ struct EditStatisticsView: View {
     
     var body: some View {
         VStack {
-            SheetTitleView(title: "Editing Dota2 stats")
+            SheetTitleView(title: "Editing \(viewModel.selectedTeam) stats")
             
             TextFieldView(title: "Enter quantity of wins",
                           tfText: $wins)
@@ -29,7 +30,10 @@ struct EditStatisticsView: View {
                           tfText: $players)
             
             Button {
-                presentationMode.wrappedValue.dismiss()
+                if let wins = Int32(wins), let losses = Int32(losses), let firstPlaces = Int32(firstPlaces), let players = Int32(players) {
+                    viewModel.saveStats(wins: wins, losses: losses, firstPlaces: firstPlaces, players: players)
+                    presentationMode.wrappedValue.dismiss()
+                }
             } label: {
                 Text("Add")
                     .frame(maxWidth: .infinity)
@@ -46,9 +50,17 @@ struct EditStatisticsView: View {
             Color.theme.background.main
                 .ignoresSafeArea()
         )
+        .onAppear {
+            if let existingStats = viewModel.teamStats.first(where: { $0.teamName == viewModel.selectedTeam }) {
+                wins = String(existingStats.wins)
+                losses = String(existingStats.losses)
+                firstPlaces = String(existingStats.firstPlaces)
+                players = String(existingStats.players)
+            }
+        }
     }
 }
 
 #Preview {
-    EditStatisticsView()
+    EditStatisticsView(viewModel: StatisticsViewModel())
 }

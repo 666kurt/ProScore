@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  ProScore
-//
-//  Created by Максим Шишлов on 21.07.2024.
-//
-
 import SwiftUI
 
 struct ContentView: View {
@@ -22,11 +15,11 @@ struct ContentView: View {
                 .tabItem {
                     Label("Calendar", systemImage: "calendar")
                 }.tag(Screens.calendar)
-            Text("StatisticScreen")
+            StatisticsScreen()
                 .tabItem {
                     Label("Statistics", systemImage: "chart.line.uptrend.xyaxis")
                 }.tag(Screens.statistics)
-            Text("SettingsScreen")
+            SettingsScreen()
                 .tabItem {
                     Label("Settings", systemImage: "gearshape.fill")
                 }.tag(Screens.settings)

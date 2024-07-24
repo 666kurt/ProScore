@@ -36,6 +36,11 @@
 		FC3AC1F22C5034ED006050EC /* StatisticsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1F12C5034ED006050EC /* StatisticsCellView.swift */; };
 		FC3AC1F42C503648006050EC /* StatisticsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1F32C503648006050EC /* StatisticsScreen.swift */; };
 		FC3AC1F62C503860006050EC /* EditStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1F52C503860006050EC /* EditStatisticsView.swift */; };
+		FC3AC1FA2C50DC8A006050EC /* TeamStats+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1F82C50DC8A006050EC /* TeamStats+CoreDataClass.swift */; };
+		FC3AC1FB2C50DC8A006050EC /* TeamStats+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1F92C50DC8A006050EC /* TeamStats+CoreDataProperties.swift */; };
+		FC3AC1FF2C50DCC1006050EC /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1FE2C50DCC1006050EC /* StatisticsViewModel.swift */; };
+		FC3AC2012C50E322006050EC /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC2002C50E322006050EC /* SettingsScreen.swift */; };
+		FC3AC2042C50E374006050EC /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC2032C50E374006050EC /* SettingsCellView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +74,11 @@
 		FC3AC1F12C5034ED006050EC /* StatisticsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCellView.swift; sourceTree = "<group>"; };
 		FC3AC1F32C503648006050EC /* StatisticsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsScreen.swift; sourceTree = "<group>"; };
 		FC3AC1F52C503860006050EC /* EditStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStatisticsView.swift; sourceTree = "<group>"; };
+		FC3AC1F82C50DC8A006050EC /* TeamStats+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamStats+CoreDataClass.swift"; sourceTree = "<group>"; };
+		FC3AC1F92C50DC8A006050EC /* TeamStats+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamStats+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		FC3AC1FE2C50DCC1006050EC /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
+		FC3AC2002C50E322006050EC /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		FC3AC2032C50E374006050EC /* SettingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +155,7 @@
 		FC26DBD52C4A844200BF4F1F /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FC3AC1FC2C50DC95006050EC /* Statistics */,
 				FC3AC1E62C501100006050EC /* Participants */,
 				FC3AC1E52C5010F2006050EC /* Event */,
 			);
@@ -183,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				FC3AC1F72C503AD6006050EC /* View */,
+				FC3AC1FD2C50DCB1006050EC /* ViewModel */,
 			);
 			path = StatisticsScreen;
 			sourceTree = "<group>";
@@ -190,6 +202,7 @@
 		FC26DBDA2C4A84B700BF4F1F /* SettingsScreen */ = {
 			isa = PBXGroup;
 			children = (
+				FC3AC2022C50E355006050EC /* View */,
 			);
 			path = SettingsScreen;
 			sourceTree = "<group>";
@@ -278,6 +291,32 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		FC3AC1FC2C50DC95006050EC /* Statistics */ = {
+			isa = PBXGroup;
+			children = (
+				FC3AC1F82C50DC8A006050EC /* TeamStats+CoreDataClass.swift */,
+				FC3AC1F92C50DC8A006050EC /* TeamStats+CoreDataProperties.swift */,
+			);
+			path = Statistics;
+			sourceTree = "<group>";
+		};
+		FC3AC1FD2C50DCB1006050EC /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				FC3AC1FE2C50DCC1006050EC /* StatisticsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		FC3AC2022C50E355006050EC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FC3AC2002C50E322006050EC /* SettingsScreen.swift */,
+				FC3AC2032C50E374006050EC /* SettingsCellView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -353,6 +392,7 @@
 				FC3AC1B62C4ED033006050EC /* TeamListView.swift in Sources */,
 				FC3AC1DE2C4F9C12006050EC /* AddEventView.swift in Sources */,
 				FC3AC1B22C4E4C5A006050EC /* TextFieldView.swift in Sources */,
+				FC3AC2012C50E322006050EC /* SettingsScreen.swift in Sources */,
 				FC3AC1F22C5034ED006050EC /* StatisticsCellView.swift in Sources */,
 				FC3AC1E02C4FAD5A006050EC /* SheetTitleView.swift in Sources */,
 				FC3AC1F02C50166D006050EC /* ParticipantCellView.swift in Sources */,
@@ -360,6 +400,7 @@
 				FC3AC1F62C503860006050EC /* EditStatisticsView.swift in Sources */,
 				FC3AC1C42C4F8676006050EC /* TitleView.swift in Sources */,
 				FC3AC1A52C4E3AE8006050EC /* PersistenceController.swift in Sources */,
+				FC3AC1FB2C50DC8A006050EC /* TeamStats+CoreDataProperties.swift in Sources */,
 				FC3AC1DA2C4F8F54006050EC /* CalendarViewModel.swift in Sources */,
 				FC26DBE62C4D651800BF4F1F /* ContentView.swift in Sources */,
 				FC26DBE42C4D63BE00BF4F1F /* Router.swift in Sources */,
@@ -370,9 +411,12 @@
 				FC3AC1D72C4F8F12006050EC /* Event+CoreDataClass.swift in Sources */,
 				FC3AC1AA2C4E3BCC006050EC /* TeamModel.xcdatamodeld in Sources */,
 				FC3AC1F42C503648006050EC /* StatisticsScreen.swift in Sources */,
+				FC3AC1FF2C50DCC1006050EC /* StatisticsViewModel.swift in Sources */,
+				FC3AC1FA2C50DC8A006050EC /* TeamStats+CoreDataClass.swift in Sources */,
 				FC3AC1EE2C50123E006050EC /* Participant+CoreDataProperties.swift in Sources */,
 				FC26DBDF2C4D605C00BF4F1F /* Color+ext.swift in Sources */,
 				FC3AC1B42C4E8926006050EC /* ImagePicker.swift in Sources */,
+				FC3AC2042C50E374006050EC /* SettingsCellView.swift in Sources */,
 				FC3AC1B02C4E3D12006050EC /* TeamHeaderView.swift in Sources */,
 				FC3AC1AE2C4E3C89006050EC /* TeamViewModel.swift in Sources */,
 			);
