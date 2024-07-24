@@ -1,10 +1,3 @@
-//
-//  ProScoreApp.swift
-//  ProScore
-//
-//  Created by Максим Шишлов on 19.07.2024.
-//
-
 import SwiftUI
 
 @main

@@ -1,8 +1,10 @@
 import SwiftUI
 
+// MARK: - CalendarScreen
+
 struct CalendarScreen: View {
     
-    @StateObject private var viewModel = CalendarViewModel()
+    @EnvironmentObject private var viewModel: CalendarViewModel
     @State private var showingAddEvent = false
     
     var body: some View {
@@ -15,7 +17,11 @@ struct CalendarScreen: View {
             
             activitiesView
             
-            eventsListView
+            if viewModel.events.isEmpty {
+                eventsListTitleView
+            } else {
+                eventsListView
+            }
             
         }
         .padding(.horizontal, 20)
@@ -24,11 +30,15 @@ struct CalendarScreen: View {
                 .ignoresSafeArea()
         )
         .sheet(isPresented: $showingAddEvent) {
-            AddEventView(viewModel: viewModel)
+            CalendarSheetView(viewModel: viewModel)
+        }
+        .onAppear {
+            viewModel.fetchEvents()
         }
     }
 }
 
+// MARK: - CalendarScreen's components
 
 extension CalendarScreen {
     
@@ -71,8 +81,17 @@ extension CalendarScreen {
         }
     }
     
+    private var eventsListTitleView: some View {
+        Text("There are no scheduled\nholidays for this day")
+            .font(.callout)
+            .foregroundColor(Color(hex: "#93979F"))
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            .multilineTextAlignment(.center)
+    }
+    
 }
 
 #Preview {
     CalendarScreen()
+        .environmentObject(CalendarViewModel())
 }

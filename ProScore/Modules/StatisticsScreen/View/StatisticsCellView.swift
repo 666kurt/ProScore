@@ -1,10 +1,3 @@
-//
-//  StatisticsCellView.swift
-//  ProScore
-//
-//  Created by Максим Шишлов on 23.07.2024.
-//
-
 import SwiftUI
 
 struct StatisticsCellView: View {

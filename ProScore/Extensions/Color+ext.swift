@@ -1,10 +1,3 @@
-//
-//  Color+ext.swift
-//  ProScore
-//
-//  Created by Максим Шишлов on 21.07.2024.
-//
-
 import Foundation
 import SwiftUI
 
@@ -41,9 +34,9 @@ struct ColorTheme {
     }
     
     struct OtherColors {
-        let primary = Color("primary")
-        let secondary = Color("secondary")
-        let separator = Color("separator")
+        let primary = Color("primaryColor")
+        let secondary = Color("secondaryColor")
+        let separator = Color("separatorColor")
         let calendar = Color("calendarColor")
         let tabbar = Color("tabbarColor")
     }

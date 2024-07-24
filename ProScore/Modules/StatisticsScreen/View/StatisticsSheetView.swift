@@ -1,13 +1,6 @@
-//
-//  EditStatisticsView.swift
-//  ProScore
-//
-//  Created by Максим Шишлов on 23.07.2024.
-//
-
 import SwiftUI
 
-struct EditStatisticsView: View {
+struct StatisticsSheetView: View {
     
     @ObservedObject var viewModel: StatisticsViewModel
     @Environment(\.presentationMode) var presentationMode
@@ -62,5 +55,5 @@ struct EditStatisticsView: View {
 }
 
 #Preview {
-    EditStatisticsView(viewModel: StatisticsViewModel())
+    StatisticsSheetView(viewModel: StatisticsViewModel())
 }

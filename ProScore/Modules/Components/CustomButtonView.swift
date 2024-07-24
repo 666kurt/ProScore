@@ -1,10 +1,3 @@
-//
-//  CustomButtonView.swift
-//  ProScore
-//
-//  Created by Максим Шишлов on 21.07.2024.
-//
-
 import SwiftUI
 
 struct CustomButtonView: View {

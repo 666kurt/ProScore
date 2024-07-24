@@ -1,8 +1,10 @@
 import SwiftUI
 
+// MARK: - TeamScreen
+
 struct TeamScreen: View {
     
-    @StateObject private var viewModel = TeamViewModel()
+    @EnvironmentObject private var viewModel: TeamViewModel
     @State private var showTeamHeaderView = false
     @State private var showTeamListView = false
     
@@ -21,13 +23,14 @@ struct TeamScreen: View {
             }
         }
         .sheet(isPresented: $showTeamHeaderView) {
-            TeamHeaderView(viewModel: viewModel)
+            TeamHeaderSheetView(viewModel: viewModel)
         }
         .sheet(isPresented: $showTeamListView) {
-            TeamListView(viewModel: viewModel)
+            TeamListSheetView(viewModel: viewModel)
         }
         .onAppear {
             viewModel.fetchTeam()
+            viewModel.fetchParticipant()
         }
         .padding(.horizontal, 20)
         .frame(maxHeight: .infinity)
@@ -37,6 +40,8 @@ struct TeamScreen: View {
         )
     }
 }
+
+// MARK: - TeamScreen's components
 
 extension TeamScreen {
     
@@ -79,13 +84,11 @@ extension TeamScreen {
                 )
             }
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .frame(maxWidth: .infinity, maxHeight: 220, alignment: .top)
         .padding(.top)
     }
     
     private var initialTeamView: some View {
-        VStack {
-            
             VStack {
                 Text("Add participants")
                     .font(.title).bold()
@@ -102,8 +105,6 @@ extension TeamScreen {
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            
-        }
     }
     
     private var participantListView: some View {

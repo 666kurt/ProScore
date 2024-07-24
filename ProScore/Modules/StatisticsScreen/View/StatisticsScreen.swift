@@ -1,15 +1,10 @@
-//
-//  StatisticsScreen.swift
-//  ProScore
-//
-//  Created by Максим Шишлов on 23.07.2024.
-//
+// MARK: - StatisticsScreen
 
 import SwiftUI
 
 struct StatisticsScreen: View {
     
-    @StateObject private var viewModel = StatisticsViewModel()
+    @EnvironmentObject private var viewModel: StatisticsViewModel
     @State private var showEditStatistics = false
     
     var body: some View {
@@ -31,10 +26,15 @@ struct StatisticsScreen: View {
                 .ignoresSafeArea()
         )
         .sheet(isPresented: $showEditStatistics) {
-            EditStatisticsView(viewModel: viewModel)
+            StatisticsSheetView(viewModel: viewModel)
+        }
+        .onAppear {
+            viewModel.fetchStats()
         }
     }
 }
+
+// MARK: - StatisticsScreen's components
 
 extension StatisticsScreen {
     
@@ -85,4 +85,5 @@ extension StatisticsScreen {
 
 #Preview {
     StatisticsScreen()
+        .environmentObject(StatisticsViewModel())
 }

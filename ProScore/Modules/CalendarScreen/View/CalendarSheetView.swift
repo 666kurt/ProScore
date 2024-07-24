@@ -1,13 +1,6 @@
-//
-//  AddEventView.swift
-//  ProScore
-//
-//  Created by Максим Шишлов on 23.07.2024.
-//
-
 import SwiftUI
 
-struct AddEventView: View {
+struct CalendarSheetView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @ObservedObject var viewModel: CalendarViewModel
@@ -57,5 +50,5 @@ struct AddEventView: View {
 }
 
 #Preview {
-    AddEventView(viewModel: CalendarViewModel())
+    CalendarSheetView(viewModel: CalendarViewModel())
 }

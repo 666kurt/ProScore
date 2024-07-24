@@ -1,10 +1,3 @@
-//
-//  TextFieldView.swift
-//  ProScore
-//
-//  Created by Максим Шишлов on 22.07.2024.
-//
-
 import SwiftUI
 
 struct TextFieldView: View {

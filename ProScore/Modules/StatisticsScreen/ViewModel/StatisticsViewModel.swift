@@ -42,4 +42,16 @@ class StatisticsViewModel: ObservableObject {
             print("Error saving data: \(error.localizedDescription)")
         }
     }
+    
+    func resetData() {
+        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = TeamStats.fetchRequest()
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try context.execute(deleteRequest)
+            try context.save()
+        } catch {
+            print("Failed to reset data: \(error.localizedDescription)")
+        }
+        fetchStats()
+    }
 }

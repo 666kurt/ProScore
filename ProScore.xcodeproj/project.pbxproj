@@ -18,16 +18,16 @@
 		FC3AC1A52C4E3AE8006050EC /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1A42C4E3AE8006050EC /* PersistenceController.swift */; };
 		FC3AC1AA2C4E3BCC006050EC /* TeamModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1A82C4E3BCC006050EC /* TeamModel.xcdatamodeld */; };
 		FC3AC1AE2C4E3C89006050EC /* TeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1AD2C4E3C89006050EC /* TeamViewModel.swift */; };
-		FC3AC1B02C4E3D12006050EC /* TeamHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1AF2C4E3D12006050EC /* TeamHeaderView.swift */; };
+		FC3AC1B02C4E3D12006050EC /* TeamHeaderSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1AF2C4E3D12006050EC /* TeamHeaderSheetView.swift */; };
 		FC3AC1B22C4E4C5A006050EC /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1B12C4E4C5A006050EC /* TextFieldView.swift */; };
 		FC3AC1B42C4E8926006050EC /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1B32C4E8926006050EC /* ImagePicker.swift */; };
-		FC3AC1B62C4ED033006050EC /* TeamListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1B52C4ED033006050EC /* TeamListView.swift */; };
+		FC3AC1B62C4ED033006050EC /* TeamListSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1B52C4ED033006050EC /* TeamListSheetView.swift */; };
 		FC3AC1C42C4F8676006050EC /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1C32C4F8676006050EC /* TitleView.swift */; };
 		FC3AC1C62C4F86CE006050EC /* CalendarScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1C52C4F86CE006050EC /* CalendarScreen.swift */; };
 		FC3AC1D72C4F8F12006050EC /* Event+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1D52C4F8F12006050EC /* Event+CoreDataClass.swift */; };
 		FC3AC1D82C4F8F12006050EC /* Event+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1D62C4F8F12006050EC /* Event+CoreDataProperties.swift */; };
 		FC3AC1DA2C4F8F54006050EC /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1D92C4F8F54006050EC /* CalendarViewModel.swift */; };
-		FC3AC1DE2C4F9C12006050EC /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1DD2C4F9C12006050EC /* AddEventView.swift */; };
+		FC3AC1DE2C4F9C12006050EC /* CalendarSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1DD2C4F9C12006050EC /* CalendarSheetView.swift */; };
 		FC3AC1E02C4FAD5A006050EC /* SheetTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1DF2C4FAD5A006050EC /* SheetTitleView.swift */; };
 		FC3AC1E22C4FB203006050EC /* CalendarCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1E12C4FB203006050EC /* CalendarCellView.swift */; };
 		FC3AC1ED2C50123E006050EC /* Participant+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1EB2C50123E006050EC /* Participant+CoreDataClass.swift */; };
@@ -35,12 +35,13 @@
 		FC3AC1F02C50166D006050EC /* ParticipantCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1EF2C50166D006050EC /* ParticipantCellView.swift */; };
 		FC3AC1F22C5034ED006050EC /* StatisticsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1F12C5034ED006050EC /* StatisticsCellView.swift */; };
 		FC3AC1F42C503648006050EC /* StatisticsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1F32C503648006050EC /* StatisticsScreen.swift */; };
-		FC3AC1F62C503860006050EC /* EditStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1F52C503860006050EC /* EditStatisticsView.swift */; };
+		FC3AC1F62C503860006050EC /* StatisticsSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1F52C503860006050EC /* StatisticsSheetView.swift */; };
 		FC3AC1FA2C50DC8A006050EC /* TeamStats+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1F82C50DC8A006050EC /* TeamStats+CoreDataClass.swift */; };
 		FC3AC1FB2C50DC8A006050EC /* TeamStats+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1F92C50DC8A006050EC /* TeamStats+CoreDataProperties.swift */; };
 		FC3AC1FF2C50DCC1006050EC /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1FE2C50DCC1006050EC /* StatisticsViewModel.swift */; };
 		FC3AC2012C50E322006050EC /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC2002C50E322006050EC /* SettingsScreen.swift */; };
 		FC3AC2042C50E374006050EC /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC2032C50E374006050EC /* SettingsCellView.swift */; };
+		FC3AC2062C50FE4D006050EC /* SettingsAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC2052C50FE4D006050EC /* SettingsAlertView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,16 +57,16 @@
 		FC3AC1A42C4E3AE8006050EC /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersistenceController.swift; path = ProScore/Utilities/PersistenceController.swift; sourceTree = SOURCE_ROOT; };
 		FC3AC1A92C4E3BCC006050EC /* TeamModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TeamModel.xcdatamodel; sourceTree = "<group>"; };
 		FC3AC1AD2C4E3C89006050EC /* TeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewModel.swift; sourceTree = "<group>"; };
-		FC3AC1AF2C4E3D12006050EC /* TeamHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamHeaderView.swift; sourceTree = "<group>"; };
+		FC3AC1AF2C4E3D12006050EC /* TeamHeaderSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamHeaderSheetView.swift; sourceTree = "<group>"; };
 		FC3AC1B12C4E4C5A006050EC /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
 		FC3AC1B32C4E8926006050EC /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
-		FC3AC1B52C4ED033006050EC /* TeamListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListView.swift; sourceTree = "<group>"; };
+		FC3AC1B52C4ED033006050EC /* TeamListSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamListSheetView.swift; sourceTree = "<group>"; };
 		FC3AC1C32C4F8676006050EC /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		FC3AC1C52C4F86CE006050EC /* CalendarScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarScreen.swift; sourceTree = "<group>"; };
 		FC3AC1D52C4F8F12006050EC /* Event+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FC3AC1D62C4F8F12006050EC /* Event+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Event+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FC3AC1D92C4F8F54006050EC /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
-		FC3AC1DD2C4F9C12006050EC /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
+		FC3AC1DD2C4F9C12006050EC /* CalendarSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarSheetView.swift; sourceTree = "<group>"; };
 		FC3AC1DF2C4FAD5A006050EC /* SheetTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetTitleView.swift; sourceTree = "<group>"; };
 		FC3AC1E12C4FB203006050EC /* CalendarCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCellView.swift; sourceTree = "<group>"; };
 		FC3AC1EB2C50123E006050EC /* Participant+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Participant+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -73,12 +74,13 @@
 		FC3AC1EF2C50166D006050EC /* ParticipantCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantCellView.swift; sourceTree = "<group>"; };
 		FC3AC1F12C5034ED006050EC /* StatisticsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsCellView.swift; sourceTree = "<group>"; };
 		FC3AC1F32C503648006050EC /* StatisticsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsScreen.swift; sourceTree = "<group>"; };
-		FC3AC1F52C503860006050EC /* EditStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStatisticsView.swift; sourceTree = "<group>"; };
+		FC3AC1F52C503860006050EC /* StatisticsSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsSheetView.swift; sourceTree = "<group>"; };
 		FC3AC1F82C50DC8A006050EC /* TeamStats+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamStats+CoreDataClass.swift"; sourceTree = "<group>"; };
 		FC3AC1F92C50DC8A006050EC /* TeamStats+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TeamStats+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		FC3AC1FE2C50DCC1006050EC /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
 		FC3AC2002C50E322006050EC /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		FC3AC2032C50E374006050EC /* SettingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
+		FC3AC2052C50FE4D006050EC /* SettingsAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAlertView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,8 +134,8 @@
 		FC26DBD12C4A837800BF4F1F /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				FC3AC1A82C4E3BCC006050EC /* TeamModel.xcdatamodeld */,
 				FC26DBC32C4A834300BF4F1F /* ProScoreApp.swift */,
+				FC3AC1A82C4E3BCC006050EC /* TeamModel.xcdatamodeld */,
 				FC26DBC72C4A834400BF4F1F /* Assets.xcassets */,
 			);
 			path = Core;
@@ -142,12 +144,12 @@
 		FC26DBD22C4A839400BF4F1F /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				FC26DBE52C4D651800BF4F1F /* ContentView.swift */,
 				FC26DBDC2C4A84DE00BF4F1F /* Components */,
 				FC26DBD72C4A848F00BF4F1F /* TeamScreen */,
 				FC26DBD82C4A84A100BF4F1F /* CalendarScreen */,
 				FC26DBD92C4A84AB00BF4F1F /* StatisticsScreen */,
 				FC26DBDA2C4A84B700BF4F1F /* SettingsScreen */,
-				FC26DBE52C4D651800BF4F1F /* ContentView.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -202,7 +204,9 @@
 		FC26DBDA2C4A84B700BF4F1F /* SettingsScreen */ = {
 			isa = PBXGroup;
 			children = (
-				FC3AC2022C50E355006050EC /* View */,
+				FC3AC2002C50E322006050EC /* SettingsScreen.swift */,
+				FC3AC2032C50E374006050EC /* SettingsCellView.swift */,
+				FC3AC2052C50FE4D006050EC /* SettingsAlertView.swift */,
 			);
 			path = SettingsScreen;
 			sourceTree = "<group>";
@@ -230,8 +234,8 @@
 			isa = PBXGroup;
 			children = (
 				FC26DBE72C4D6D9A00BF4F1F /* TeamScreen.swift */,
-				FC3AC1AF2C4E3D12006050EC /* TeamHeaderView.swift */,
-				FC3AC1B52C4ED033006050EC /* TeamListView.swift */,
+				FC3AC1AF2C4E3D12006050EC /* TeamHeaderSheetView.swift */,
+				FC3AC1B52C4ED033006050EC /* TeamListSheetView.swift */,
 				FC3AC1EF2C50166D006050EC /* ParticipantCellView.swift */,
 			);
 			path = View;
@@ -249,7 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				FC3AC1E12C4FB203006050EC /* CalendarCellView.swift */,
-				FC3AC1DD2C4F9C12006050EC /* AddEventView.swift */,
+				FC3AC1DD2C4F9C12006050EC /* CalendarSheetView.swift */,
 				FC3AC1C52C4F86CE006050EC /* CalendarScreen.swift */,
 			);
 			path = View;
@@ -286,7 +290,7 @@
 			children = (
 				FC3AC1F12C5034ED006050EC /* StatisticsCellView.swift */,
 				FC3AC1F32C503648006050EC /* StatisticsScreen.swift */,
-				FC3AC1F52C503860006050EC /* EditStatisticsView.swift */,
+				FC3AC1F52C503860006050EC /* StatisticsSheetView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -306,15 +310,6 @@
 				FC3AC1FE2C50DCC1006050EC /* StatisticsViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		FC3AC2022C50E355006050EC /* View */ = {
-			isa = PBXGroup;
-			children = (
-				FC3AC2002C50E322006050EC /* SettingsScreen.swift */,
-				FC3AC2032C50E374006050EC /* SettingsCellView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -389,15 +384,15 @@
 			files = (
 				FC26DBE82C4D6D9A00BF4F1F /* TeamScreen.swift in Sources */,
 				FC3AC1D82C4F8F12006050EC /* Event+CoreDataProperties.swift in Sources */,
-				FC3AC1B62C4ED033006050EC /* TeamListView.swift in Sources */,
-				FC3AC1DE2C4F9C12006050EC /* AddEventView.swift in Sources */,
+				FC3AC1B62C4ED033006050EC /* TeamListSheetView.swift in Sources */,
+				FC3AC1DE2C4F9C12006050EC /* CalendarSheetView.swift in Sources */,
 				FC3AC1B22C4E4C5A006050EC /* TextFieldView.swift in Sources */,
 				FC3AC2012C50E322006050EC /* SettingsScreen.swift in Sources */,
 				FC3AC1F22C5034ED006050EC /* StatisticsCellView.swift in Sources */,
 				FC3AC1E02C4FAD5A006050EC /* SheetTitleView.swift in Sources */,
 				FC3AC1F02C50166D006050EC /* ParticipantCellView.swift in Sources */,
 				FC3AC1E22C4FB203006050EC /* CalendarCellView.swift in Sources */,
-				FC3AC1F62C503860006050EC /* EditStatisticsView.swift in Sources */,
+				FC3AC1F62C503860006050EC /* StatisticsSheetView.swift in Sources */,
 				FC3AC1C42C4F8676006050EC /* TitleView.swift in Sources */,
 				FC3AC1A52C4E3AE8006050EC /* PersistenceController.swift in Sources */,
 				FC3AC1FB2C50DC8A006050EC /* TeamStats+CoreDataProperties.swift in Sources */,
@@ -409,6 +404,7 @@
 				FC26DBC42C4A834300BF4F1F /* ProScoreApp.swift in Sources */,
 				FC3AC1A12C4D6F5A006050EC /* CustomButtonView.swift in Sources */,
 				FC3AC1D72C4F8F12006050EC /* Event+CoreDataClass.swift in Sources */,
+				FC3AC2062C50FE4D006050EC /* SettingsAlertView.swift in Sources */,
 				FC3AC1AA2C4E3BCC006050EC /* TeamModel.xcdatamodeld in Sources */,
 				FC3AC1F42C503648006050EC /* StatisticsScreen.swift in Sources */,
 				FC3AC1FF2C50DCC1006050EC /* StatisticsViewModel.swift in Sources */,
@@ -417,7 +413,7 @@
 				FC26DBDF2C4D605C00BF4F1F /* Color+ext.swift in Sources */,
 				FC3AC1B42C4E8926006050EC /* ImagePicker.swift in Sources */,
 				FC3AC2042C50E374006050EC /* SettingsCellView.swift in Sources */,
-				FC3AC1B02C4E3D12006050EC /* TeamHeaderView.swift in Sources */,
+				FC3AC1B02C4E3D12006050EC /* TeamHeaderSheetView.swift in Sources */,
 				FC3AC1AE2C4E3C89006050EC /* TeamViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -1,10 +1,3 @@
-//
-//  ImagePicker.swift
-//  ProScore
-//
-//  Created by Максим Шишлов on 22.07.2024.
-//
-
 import SwiftUI
 import UIKit
 

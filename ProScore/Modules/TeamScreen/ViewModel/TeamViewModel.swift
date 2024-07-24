@@ -11,18 +11,18 @@ import CoreData
 class TeamViewModel: ObservableObject {
     @Published var name: String = ""
     @Published var image: UIImage? = nil
-
+    
     @Published var participant: [Participant] = []
     
     @Published var isImagePickerPresented: Bool = false
-
+    
     private let context = PersistenceController.shared.container.viewContext
-
+    
     init() {
         fetchTeam()
         fetchParticipant()
     }
-
+    
     func saveTeam() {
         let fetchRequest: NSFetchRequest<Team> = Team.fetchRequest()
         fetchRequest.fetchLimit = 1
@@ -41,7 +41,7 @@ class TeamViewModel: ObservableObject {
             print("Failed to save team: \(error.localizedDescription)")
         }
     }
-
+    
     func fetchTeam() {
         let fetchRequest: NSFetchRequest<Team> = Team.fetchRequest()
         do {
@@ -66,7 +66,7 @@ class TeamViewModel: ObservableObject {
             print("Failed to fetch events: \(error.localizedDescription)")
         }
     }
-
+    
     func addParticipant(name: String, nickname: String, game: String) {
         let newGamer = Participant(context: context)
         newGamer.name = name
@@ -75,7 +75,7 @@ class TeamViewModel: ObservableObject {
         saveContext()
         fetchParticipant()
     }
-
+    
     func saveContext() {
         if context.hasChanges {
             do {
@@ -85,5 +85,23 @@ class TeamViewModel: ObservableObject {
             }
         }
     }
-
+    
+    func resetData() {
+        let fetchTeamRequest: NSFetchRequest<NSFetchRequestResult> = Team.fetchRequest()
+        let deleteTeamRequest = NSBatchDeleteRequest(fetchRequest: fetchTeamRequest)
+        
+        let fetchParticipantRequest: NSFetchRequest<NSFetchRequestResult> = Participant.fetchRequest()
+        let deleteParticipantRequest = NSBatchDeleteRequest(fetchRequest: fetchParticipantRequest)
+        
+        do {
+            try context.execute(deleteTeamRequest)
+            try context.execute(deleteParticipantRequest)
+            try context.save()
+        } catch {
+            print("Failed to reset data: \(error.localizedDescription)")
+        }
+        fetchTeam()
+        fetchParticipant()
+    }
+    
 }
