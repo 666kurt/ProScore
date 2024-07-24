@@ -31,13 +31,11 @@ struct CalendarSheetView: View {
                     Text("Add")
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 14)
-                        .foregroundColor(Color.theme.text.main)
-                        .background(eventName.isEmpty
-                            ? Color.theme.background.light
-                            : Color.theme.other.primary
-                        )
+                        .foregroundColor(textColor)
+                        .background(buttonColor)
                         .clipShape(RoundedRectangle(cornerRadius: 12))
                 }
+                .disabled(!buttonIsValid)
                 
                 Spacer()
             }
@@ -47,6 +45,18 @@ struct CalendarSheetView: View {
                     .ignoresSafeArea()
             )
         }
+    
+    private var buttonIsValid: Bool {
+        return !eventName.isEmpty
+    }
+
+    private var buttonColor: Color {
+        return buttonIsValid ? Color.theme.other.primary : Color.theme.other.disabled
+    }
+    
+    private var textColor: Color {
+        return buttonIsValid ? Color.theme.text.main : Color.theme.background.light
+    }
 }
 
 #Preview {

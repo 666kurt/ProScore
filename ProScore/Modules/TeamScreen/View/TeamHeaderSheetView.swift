@@ -3,7 +3,7 @@ import SwiftUI
 struct TeamHeaderSheetView: View {
     
     @ObservedObject var viewModel: TeamViewModel
-    @Environment(\.presentationMode) var presentationMode
+    @Environment(\.presentationMode) private var presentationMode
     
     var body: some View {
         
@@ -38,14 +38,11 @@ struct TeamHeaderSheetView: View {
                 Text("Add")
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 14)
-                    .foregroundColor(Color.theme.text.main)
-                    .background(
-                        (viewModel.name.isEmpty || viewModel.image == nil)
-                        ? Color.theme.background.light
-                        : Color.theme.other.primary
-                    )
+                    .foregroundColor(textColor)
+                    .background(buttonColor)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
             }
+            .disabled(!buttonIsValid)
             
             Spacer()
         }
@@ -58,6 +55,20 @@ struct TeamHeaderSheetView: View {
             ImagePicker(image: $viewModel.image)
         }
     }
+    
+    
+    private var buttonIsValid: Bool {
+        return !viewModel.name.isEmpty && !(viewModel.image == nil)
+    }
+
+    private var buttonColor: Color {
+        return buttonIsValid ? Color.theme.other.primary : Color.theme.other.disabled
+    }
+    
+    private var textColor: Color {
+        return buttonIsValid ? Color.theme.text.main : Color.theme.background.light
+    }
+    
 }
 
 #Preview {

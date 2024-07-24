@@ -42,6 +42,9 @@
 		FC3AC2012C50E322006050EC /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC2002C50E322006050EC /* SettingsScreen.swift */; };
 		FC3AC2042C50E374006050EC /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC2032C50E374006050EC /* SettingsCellView.swift */; };
 		FC3AC2062C50FE4D006050EC /* SettingsAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC2052C50FE4D006050EC /* SettingsAlertView.swift */; };
+		FC3AC20C2C517A0D006050EC /* OnboardingStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC20B2C517A0D006050EC /* OnboardingStepView.swift */; };
+		FC3AC20E2C517CEF006050EC /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC20D2C517CEF006050EC /* OnboardingScreen.swift */; };
+		FC3AC2102C5184F8006050EC /* CustomTabIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC20F2C5184F8006050EC /* CustomTabIndicator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +84,9 @@
 		FC3AC2002C50E322006050EC /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		FC3AC2032C50E374006050EC /* SettingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
 		FC3AC2052C50FE4D006050EC /* SettingsAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAlertView.swift; sourceTree = "<group>"; };
+		FC3AC20B2C517A0D006050EC /* OnboardingStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepView.swift; sourceTree = "<group>"; };
+		FC3AC20D2C517CEF006050EC /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
+		FC3AC20F2C5184F8006050EC /* CustomTabIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabIndicator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +151,7 @@
 			isa = PBXGroup;
 			children = (
 				FC26DBE52C4D651800BF4F1F /* ContentView.swift */,
+				FC3AC2092C5179EC006050EC /* Onboarding */,
 				FC26DBDC2C4A84DE00BF4F1F /* Components */,
 				FC26DBD72C4A848F00BF4F1F /* TeamScreen */,
 				FC26DBD82C4A84A100BF4F1F /* CalendarScreen */,
@@ -312,6 +319,16 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		FC3AC2092C5179EC006050EC /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				FC3AC20B2C517A0D006050EC /* OnboardingStepView.swift */,
+				FC3AC20D2C517CEF006050EC /* OnboardingScreen.swift */,
+				FC3AC20F2C5184F8006050EC /* CustomTabIndicator.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -391,6 +408,8 @@
 				FC3AC1F22C5034ED006050EC /* StatisticsCellView.swift in Sources */,
 				FC3AC1E02C4FAD5A006050EC /* SheetTitleView.swift in Sources */,
 				FC3AC1F02C50166D006050EC /* ParticipantCellView.swift in Sources */,
+				FC3AC20C2C517A0D006050EC /* OnboardingStepView.swift in Sources */,
+				FC3AC20E2C517CEF006050EC /* OnboardingScreen.swift in Sources */,
 				FC3AC1E22C4FB203006050EC /* CalendarCellView.swift in Sources */,
 				FC3AC1F62C503860006050EC /* StatisticsSheetView.swift in Sources */,
 				FC3AC1C42C4F8676006050EC /* TitleView.swift in Sources */,
@@ -402,6 +421,7 @@
 				FC3AC1C62C4F86CE006050EC /* CalendarScreen.swift in Sources */,
 				FC3AC1ED2C50123E006050EC /* Participant+CoreDataClass.swift in Sources */,
 				FC26DBC42C4A834300BF4F1F /* ProScoreApp.swift in Sources */,
+				FC3AC2102C5184F8006050EC /* CustomTabIndicator.swift in Sources */,
 				FC3AC1A12C4D6F5A006050EC /* CustomButtonView.swift in Sources */,
 				FC3AC1D72C4F8F12006050EC /* Event+CoreDataClass.swift in Sources */,
 				FC3AC2062C50FE4D006050EC /* SettingsAlertView.swift in Sources */,

@@ -36,12 +36,17 @@ struct ContentView: View {
         }
         .accentColor(Color.theme.text.main)
         .onAppear(perform: {
-            UITabBar.appearance().unselectedItemTintColor = UIColor(Color.theme.background.light)
-            UITabBar.appearance().backgroundColor = UIColor(Color.theme.other.tabbar)
             
-            let transparentAppearence = UITabBarAppearance()
-            transparentAppearence.configureWithTransparentBackground()
-            UITabBar.appearance().standardAppearance = transparentAppearence
+            let appearance = UITabBarAppearance()
+            appearance.backgroundColor = UIColor(Color.theme.other.tabbar)
+            appearance.shadowColor = UIColor(Color.white.opacity(0.15))
+            
+            UITabBar.appearance().unselectedItemTintColor = UIColor(Color.theme.background.light)
+
+            UITabBar.appearance().standardAppearance = appearance
+            if #available(iOS 15.0, *) {
+                UITabBar.appearance().scrollEdgeAppearance = appearance
+            }
         })
     }
 }

@@ -31,10 +31,11 @@ struct StatisticsSheetView: View {
                 Text("Add")
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 14)
-                    .foregroundColor(Color.theme.text.main)
-                    .background(Color.theme.other.primary)
+                    .foregroundColor(textColor)
+                    .background(buttonColor)
                     .clipShape(RoundedRectangle(cornerRadius: 12))
             }
+            .disabled(!buttonIsValid)
             
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
@@ -51,6 +52,19 @@ struct StatisticsSheetView: View {
                 players = String(existingStats.players)
             }
         }
+    }
+    
+    private var buttonIsValid: Bool {
+        return !wins.isEmpty && !losses.isEmpty
+        && !firstPlaces.isEmpty && !players.isEmpty
+    }
+
+    private var buttonColor: Color {
+        return buttonIsValid ? Color.theme.other.primary : Color.theme.other.disabled
+    }
+    
+    private var textColor: Color {
+        return buttonIsValid ? Color.theme.text.main : Color.theme.background.light
     }
 }
 

@@ -17,7 +17,7 @@ struct CalendarScreen: View {
             
             activitiesView
             
-            if viewModel.events.isEmpty {
+            if viewModel.eventsForSelectedDate.isEmpty {
                 eventsListTitleView
             } else {
                 eventsListView
@@ -50,8 +50,9 @@ extension CalendarScreen {
         .colorScheme(.dark)
         .background(Color.theme.other.calendar)
         .clipShape(RoundedRectangle(cornerRadius: 10))
-        
-        
+        .onChange(of: viewModel.selectedDate) { _ in
+            viewModel.fetchEvents()
+        }
     }
     
     private var activitiesView: some View {
@@ -70,9 +71,9 @@ extension CalendarScreen {
     }
     
     private var eventsListView: some View {
-        ScrollView {
+        ScrollView(showsIndicators: false) {
             LazyVStack {
-                ForEach(viewModel.events) { event in
+                ForEach(viewModel.eventsForSelectedDate) { event in
                     CalendarCellView(title: event.name ?? "",
                                      time: event.startTime ?? Date(),
                                      date: event.date ?? Date())
@@ -87,6 +88,7 @@ extension CalendarScreen {
             .foregroundColor(Color(hex: "#93979F"))
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .multilineTextAlignment(.center)
+            .padding(.top, 75)
     }
     
 }

@@ -105,6 +105,7 @@ extension TeamScreen {
                 
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+            .padding(.top, 75)
     }
     
     private var participantListView: some View {

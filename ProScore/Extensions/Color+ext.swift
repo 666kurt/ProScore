@@ -39,6 +39,7 @@ struct ColorTheme {
         let separator = Color("separatorColor")
         let calendar = Color("calendarColor")
         let tabbar = Color("tabbarColor")
+        let disabled = Color("disabledColor")
     }
     
     let text = TextColors()

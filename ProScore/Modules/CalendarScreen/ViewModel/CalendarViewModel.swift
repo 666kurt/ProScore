@@ -1,10 +1,3 @@
-//
-//  CalendarViewModel.swift
-//  ProScore
-//
-//  Created by Максим Шишлов on 23.07.2024.
-//
-
 import Foundation
 import CoreData
 import SwiftUI
@@ -44,6 +37,14 @@ class CalendarViewModel: ObservableObject {
             } catch {
                 print("Failed to save context: \(error.localizedDescription)")
             }
+        }
+    }
+    
+    var eventsForSelectedDate: [Event] {
+        let calendar = Calendar.current
+        return events.filter { event in
+            guard let eventDate = event.date else { return false }
+            return calendar.isDate(eventDate, inSameDayAs: selectedDate)
         }
     }
     

@@ -87,21 +87,25 @@ class TeamViewModel: ObservableObject {
     }
     
     func resetData() {
-        let fetchTeamRequest: NSFetchRequest<NSFetchRequestResult> = Team.fetchRequest()
-        let deleteTeamRequest = NSBatchDeleteRequest(fetchRequest: fetchTeamRequest)
-        
-        let fetchParticipantRequest: NSFetchRequest<NSFetchRequestResult> = Participant.fetchRequest()
-        let deleteParticipantRequest = NSBatchDeleteRequest(fetchRequest: fetchParticipantRequest)
-        
-        do {
-            try context.execute(deleteTeamRequest)
-            try context.execute(deleteParticipantRequest)
-            try context.save()
-        } catch {
-            print("Failed to reset data: \(error.localizedDescription)")
+
+            let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Team.fetchRequest()
+            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+            
+            let fetchParticipantRequest: NSFetchRequest<NSFetchRequestResult> = Participant.fetchRequest()
+            let deleteParticipantRequest = NSBatchDeleteRequest(fetchRequest: fetchParticipantRequest)
+            
+            do {
+                try context.execute(deleteRequest)
+                try context.execute(deleteParticipantRequest)
+                try context.save()
+                
+                self.name = ""
+                self.image = nil
+                self.participant.removeAll()
+                
+            } catch {
+                print("Failed to reset data: \(error.localizedDescription)")
+            }
         }
-        fetchTeam()
-        fetchParticipant()
-    }
     
 }
