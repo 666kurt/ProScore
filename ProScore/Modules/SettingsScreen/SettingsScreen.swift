@@ -41,7 +41,10 @@ struct SettingsScreen: View {
             if showAlert {
                 Color.black.opacity(0.5)
                     .edgesIgnoringSafeArea(.all)
-                SettingsAlertView(showAlert: $showAlert, onReset: resetData)
+                CustomAlertView(showAlert: $showAlert,
+                                title: "Reset data",
+                                description: "Do you really want to reset the data? It'll cause you to lose progress.", buttonLabel: "Reset",
+                                onReset: resetData)
                     .transition(.opacity)
                     .animation(.easeInOut)
             }

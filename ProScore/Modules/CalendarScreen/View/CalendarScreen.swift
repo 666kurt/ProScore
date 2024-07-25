@@ -43,16 +43,18 @@ struct CalendarScreen: View {
 extension CalendarScreen {
     
     private var calendarView: some View {
-        DatePicker("Select Date",
+        DatePicker("",
                    selection: $viewModel.selectedDate,
                    displayedComponents: [.date])
-        .datePickerStyle(GraphicalDatePickerStyle())
+        .datePickerStyle(.graphical)
+        .id(viewModel.selectedDate)
         .colorScheme(.dark)
         .background(Color.theme.other.calendar)
-        .clipShape(RoundedRectangle(cornerRadius: 10))
         .onChange(of: viewModel.selectedDate) { _ in
             viewModel.fetchEvents()
         }
+        .frame(width: 360, height: 320)
+        .clipShape(RoundedRectangle(cornerRadius: 10))
     }
     
     private var activitiesView: some View {

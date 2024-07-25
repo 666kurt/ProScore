@@ -41,10 +41,11 @@
 		FC3AC1FF2C50DCC1006050EC /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1FE2C50DCC1006050EC /* StatisticsViewModel.swift */; };
 		FC3AC2012C50E322006050EC /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC2002C50E322006050EC /* SettingsScreen.swift */; };
 		FC3AC2042C50E374006050EC /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC2032C50E374006050EC /* SettingsCellView.swift */; };
-		FC3AC2062C50FE4D006050EC /* SettingsAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC2052C50FE4D006050EC /* SettingsAlertView.swift */; };
+		FC3AC2062C50FE4D006050EC /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC2052C50FE4D006050EC /* CustomAlertView.swift */; };
 		FC3AC20C2C517A0D006050EC /* OnboardingStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC20B2C517A0D006050EC /* OnboardingStepView.swift */; };
 		FC3AC20E2C517CEF006050EC /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC20D2C517CEF006050EC /* OnboardingScreen.swift */; };
 		FC3AC2102C5184F8006050EC /* CustomTabIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC20F2C5184F8006050EC /* CustomTabIndicator.swift */; };
+		FC3AC2122C522B3F006050EC /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC2112C522B3F006050EC /* SplashScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -83,10 +84,11 @@
 		FC3AC1FE2C50DCC1006050EC /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
 		FC3AC2002C50E322006050EC /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		FC3AC2032C50E374006050EC /* SettingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
-		FC3AC2052C50FE4D006050EC /* SettingsAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsAlertView.swift; sourceTree = "<group>"; };
+		FC3AC2052C50FE4D006050EC /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
 		FC3AC20B2C517A0D006050EC /* OnboardingStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepView.swift; sourceTree = "<group>"; };
 		FC3AC20D2C517CEF006050EC /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		FC3AC20F2C5184F8006050EC /* CustomTabIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabIndicator.swift; sourceTree = "<group>"; };
+		FC3AC2112C522B3F006050EC /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,8 +153,8 @@
 			isa = PBXGroup;
 			children = (
 				FC26DBE52C4D651800BF4F1F /* ContentView.swift */,
-				FC3AC2092C5179EC006050EC /* Onboarding */,
 				FC26DBDC2C4A84DE00BF4F1F /* Components */,
+				FC3AC2092C5179EC006050EC /* Onboarding & Splash */,
 				FC26DBD72C4A848F00BF4F1F /* TeamScreen */,
 				FC26DBD82C4A84A100BF4F1F /* CalendarScreen */,
 				FC26DBD92C4A84AB00BF4F1F /* StatisticsScreen */,
@@ -213,7 +215,6 @@
 			children = (
 				FC3AC2002C50E322006050EC /* SettingsScreen.swift */,
 				FC3AC2032C50E374006050EC /* SettingsCellView.swift */,
-				FC3AC2052C50FE4D006050EC /* SettingsAlertView.swift */,
 			);
 			path = SettingsScreen;
 			sourceTree = "<group>";
@@ -221,6 +222,7 @@
 		FC26DBDC2C4A84DE00BF4F1F /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				FC3AC2052C50FE4D006050EC /* CustomAlertView.swift */,
 				FC3AC1A02C4D6F5A006050EC /* CustomButtonView.swift */,
 				FC3AC1B12C4E4C5A006050EC /* TextFieldView.swift */,
 				FC3AC1C32C4F8676006050EC /* TitleView.swift */,
@@ -319,14 +321,15 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		FC3AC2092C5179EC006050EC /* Onboarding */ = {
+		FC3AC2092C5179EC006050EC /* Onboarding & Splash */ = {
 			isa = PBXGroup;
 			children = (
 				FC3AC20B2C517A0D006050EC /* OnboardingStepView.swift */,
 				FC3AC20D2C517CEF006050EC /* OnboardingScreen.swift */,
 				FC3AC20F2C5184F8006050EC /* CustomTabIndicator.swift */,
+				FC3AC2112C522B3F006050EC /* SplashScreen.swift */,
 			);
-			path = Onboarding;
+			path = "Onboarding & Splash";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -423,8 +426,9 @@
 				FC26DBC42C4A834300BF4F1F /* ProScoreApp.swift in Sources */,
 				FC3AC2102C5184F8006050EC /* CustomTabIndicator.swift in Sources */,
 				FC3AC1A12C4D6F5A006050EC /* CustomButtonView.swift in Sources */,
+				FC3AC2122C522B3F006050EC /* SplashScreen.swift in Sources */,
 				FC3AC1D72C4F8F12006050EC /* Event+CoreDataClass.swift in Sources */,
-				FC3AC2062C50FE4D006050EC /* SettingsAlertView.swift in Sources */,
+				FC3AC2062C50FE4D006050EC /* CustomAlertView.swift in Sources */,
 				FC3AC1AA2C4E3BCC006050EC /* TeamModel.xcdatamodeld in Sources */,
 				FC3AC1F42C503648006050EC /* StatisticsScreen.swift in Sources */,
 				FC3AC1FF2C50DCC1006050EC /* StatisticsViewModel.swift in Sources */,
@@ -571,6 +575,7 @@
 				DEVELOPMENT_TEAM = CTY44DYVYJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ProScore;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -605,6 +610,7 @@
 				DEVELOPMENT_TEAM = CTY44DYVYJ;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = ProScore;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

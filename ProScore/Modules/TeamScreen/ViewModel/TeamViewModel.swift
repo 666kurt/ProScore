@@ -76,6 +76,15 @@ class TeamViewModel: ObservableObject {
         fetchParticipant()
     }
     
+    func deleteParticipant(at offsets: IndexSet) {
+        offsets.forEach { index in
+            let participantToDelete = participant[index]
+            context.delete(participantToDelete)
+        }
+        saveContext()
+        fetchParticipant()
+    }
+    
     func saveContext() {
         if context.hasChanges {
             do {

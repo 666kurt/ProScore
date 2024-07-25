@@ -19,7 +19,6 @@ struct ParticipantCellView: View {
                 Text(game)
                     .foregroundColor((Color(hex: "#EBEBF5").opacity(0.6)))
             }
-            .padding(.horizontal, 16)
             .padding(.vertical, 8)
             Divider()
                 .frame(height: 3)
@@ -31,5 +30,6 @@ struct ParticipantCellView: View {
 
 #Preview {
     ParticipantCellView(name: "Robert Robinson", nickname: "Shadowmoon", game: "Dota2")
-        .padding()
+        .frame(maxHeight: .infinity)
+        .background(Color.black)
 }

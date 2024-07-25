@@ -8,36 +8,58 @@ struct TeamScreen: View {
     @State private var showTeamHeaderView = false
     @State private var showTeamListView = false
     
+    @State private var showAlert = false
+    @State private var indexSetToDelete: IndexSet?
+    
     var body: some View {
         
-        VStack {
-            headerTeamView
+        ZStack {
+            VStack {
+                headerTeamView
+                
+                TitleView(title: "Team")
+                    .padding(.top, 30)
+                
+                if viewModel.participant.isEmpty {
+                    initialTeamView
+                } else {
+                    participantListView
+                }
+            }
+            .sheet(isPresented: $showTeamHeaderView) {
+                TeamHeaderSheetView(viewModel: viewModel)
+            }
+            .sheet(isPresented: $showTeamListView) {
+                TeamListSheetView(viewModel: viewModel)
+            }
+            .onAppear {
+                viewModel.fetchTeam()
+                viewModel.fetchParticipant()
+            }
+            .padding(.horizontal, 20)
+            .frame(maxHeight: .infinity)
+            .background(
+                Color.theme.background.main
+                    .ignoresSafeArea()
+            )
             
-            TitleView(title: "Team")
-                .padding(.top, 30)
-            
-            if viewModel.participant.isEmpty {
-                initialTeamView
-            } else {
-                participantListView
+            if showAlert {
+                Color.black.opacity(0.5)
+                    .edgesIgnoringSafeArea(.all)
+                CustomAlertView(showAlert: $showAlert,
+                                title: "Delete",
+                                description: "Are you sure you want to delete?", buttonLabel: "Delete",
+                                onReset: {
+                    if let indexSet = indexSetToDelete {
+                        viewModel.deleteParticipant(at: indexSet)
+                    }
+                })
+                .transition(.opacity)
+                .animation(.easeInOut)
             }
         }
-        .sheet(isPresented: $showTeamHeaderView) {
-            TeamHeaderSheetView(viewModel: viewModel)
-        }
-        .sheet(isPresented: $showTeamListView) {
-            TeamListSheetView(viewModel: viewModel)
-        }
-        .onAppear {
-            viewModel.fetchTeam()
-            viewModel.fetchParticipant()
-        }
-        .padding(.horizontal, 20)
-        .frame(maxHeight: .infinity)
-        .background(
-            Color.theme.background.main
-                .ignoresSafeArea()
-        )
+        
+        
     }
 }
 
@@ -52,6 +74,7 @@ extension TeamScreen {
                 ZStack(alignment: .bottom) {
                     Image(uiImage: image)
                         .resizable()
+//                        .scaledToFill()
                     Text(viewModel.name)
                         .font(.largeTitle).bold()
                         .padding(.vertical, 20)
@@ -89,39 +112,41 @@ extension TeamScreen {
     }
     
     private var initialTeamView: some View {
-            VStack {
-                Text("Add participants")
-                    .font(.title).bold()
-                    .foregroundColor(Color.theme.text.main)
-                Text("Manage your team")
-                    .font(.callout)
-                    .foregroundColor(
-                        Color(hex: "#F4F8FF").opacity(0.7)
-                    )
-                CustomButtonView(buttonLabel: "Add a participants", action: {
-                    showTeamListView.toggle()
-                })
-                .padding(.top, 14)
-                
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
-            .padding(.top, 75)
+        VStack {
+            Text("Add participants")
+                .font(.title).bold()
+                .foregroundColor(Color.theme.text.main)
+            Text("Manage your team")
+                .font(.callout)
+                .foregroundColor(
+                    Color(hex: "#F4F8FF").opacity(0.7)
+                )
+            CustomButtonView(buttonLabel: "Add a participants", action: {
+                showTeamListView.toggle()
+            })
+            .padding(.top, 14)
+            
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .padding(.top, 75)
     }
     
     private var participantListView: some View {
         ZStack(alignment: .bottom) {
-            ScrollView {
-                LazyVStack {
-                    
-                    ForEach(viewModel.participant, id: \.self) { gamers in
-                        ParticipantCellView(
-                            name: gamers.name ?? "",
-                            nickname: gamers.nickname ?? "",
-                            game: gamers.game ?? "")
-                    }
-                    
+            
+            List {
+                ForEach(viewModel.participant, id: \.self) { gamers in
+                    ParticipantCellView(
+                        name: gamers.name ?? "",
+                        nickname: gamers.nickname ?? "",
+                        game: gamers.game ?? "")
                 }
+                .onDelete(perform: showDeleteAlert)
+                .listRowBackground(Color.theme.background.main)
+                .listRowInsets(EdgeInsets())
+                
             }
+            .listStyle(.plain)
             
             CustomButtonView(buttonLabel: "Add a participants", action: {
                 showTeamListView.toggle()
@@ -131,9 +156,16 @@ extension TeamScreen {
         .frame(maxHeight: .infinity)
     }
     
+    private func showDeleteAlert(at indexSet: IndexSet) {
+        indexSetToDelete = indexSet
+        showAlert = true
+    }
+    
 }
 
 #Preview {
     ContentView()
         .environmentObject(Router.shared)
 }
+
+

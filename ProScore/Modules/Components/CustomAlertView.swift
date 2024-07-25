@@ -1,25 +1,21 @@
-//
-//  SettingsAlertView.swift
-//  ProScore
-//
-//  Created by Максим Шишлов on 24.07.2024.
-//
-
 import SwiftUI
 
-struct SettingsAlertView: View {
+struct CustomAlertView: View {
     
     @Binding var showAlert: Bool
-    var onReset: () -> Void
+    let title: String
+    let description: String
+    let buttonLabel: String
+    let onReset: () -> Void
     
     var body: some View {
             VStack(spacing: 0) {
-                Text("Reset data")
+                Text(title)
                     .font(.headline)
                     .padding(.top)
                     .padding(.bottom, 8)
                 
-                Text("Do you really want to reset the data? It'll cause you to lose progress.")
+                Text(description)
                     .font(.footnote)
                     .multilineTextAlignment(.center)
                     .padding([.bottom, .trailing, .leading])
@@ -33,6 +29,7 @@ struct SettingsAlertView: View {
                         showAlert = false
                     } label: {
                         Text("Close")
+                            .bold()
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
                     }
                     
@@ -43,7 +40,8 @@ struct SettingsAlertView: View {
                         onReset()
                         showAlert = false
                     } label: {
-                        Text("Reset")
+                        Text(buttonLabel)
+                            .bold()
                             .frame(minWidth: 0, maxWidth: .infinity, alignment: .center)
                             .foregroundColor(Color.theme.other.primary)
                         
@@ -61,7 +59,10 @@ struct SettingsAlertView: View {
 }
 
 #Preview {
-    SettingsAlertView(showAlert: .constant(true)) {
+    CustomAlertView(showAlert: .constant(true),
+                    title: "Reset data",
+                    description: "Do you really want to reset the data? It'll cause you to lose progress.",
+                    buttonLabel: "Reset") {
         //
     }
 }
