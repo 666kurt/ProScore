@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CustomButtonView: View {
+struct ButtonView: View {
     
     let buttonLabel: String
     let action: () -> Void
@@ -21,7 +21,7 @@ struct CustomButtonView: View {
 }
 
 #Preview {
-    CustomButtonView(buttonLabel: "Add information") {
+    ButtonView(buttonLabel: "Add information") {
         //
     }
 }

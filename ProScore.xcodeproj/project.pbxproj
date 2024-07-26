@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FC10113B2C541BB400748752 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC10113A2C541BB400748752 /* CalendarView.swift */; };
 		FC26DBC42C4A834300BF4F1F /* ProScoreApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC26DBC32C4A834300BF4F1F /* ProScoreApp.swift */; };
 		FC26DBC82C4A834400BF4F1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC26DBC72C4A834400BF4F1F /* Assets.xcassets */; };
 		FC26DBCB2C4A834400BF4F1F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC26DBCA2C4A834400BF4F1F /* Preview Assets.xcassets */; };
@@ -14,7 +15,7 @@
 		FC26DBE42C4D63BE00BF4F1F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC26DBE32C4D63BE00BF4F1F /* Router.swift */; };
 		FC26DBE62C4D651800BF4F1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC26DBE52C4D651800BF4F1F /* ContentView.swift */; };
 		FC26DBE82C4D6D9A00BF4F1F /* TeamScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC26DBE72C4D6D9A00BF4F1F /* TeamScreen.swift */; };
-		FC3AC1A12C4D6F5A006050EC /* CustomButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1A02C4D6F5A006050EC /* CustomButtonView.swift */; };
+		FC3AC1A12C4D6F5A006050EC /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1A02C4D6F5A006050EC /* ButtonView.swift */; };
 		FC3AC1A52C4E3AE8006050EC /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1A42C4E3AE8006050EC /* PersistenceController.swift */; };
 		FC3AC1AA2C4E3BCC006050EC /* TeamModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1A82C4E3BCC006050EC /* TeamModel.xcdatamodeld */; };
 		FC3AC1AE2C4E3C89006050EC /* TeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1AD2C4E3C89006050EC /* TeamViewModel.swift */; };
@@ -41,7 +42,7 @@
 		FC3AC1FF2C50DCC1006050EC /* StatisticsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1FE2C50DCC1006050EC /* StatisticsViewModel.swift */; };
 		FC3AC2012C50E322006050EC /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC2002C50E322006050EC /* SettingsScreen.swift */; };
 		FC3AC2042C50E374006050EC /* SettingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC2032C50E374006050EC /* SettingsCellView.swift */; };
-		FC3AC2062C50FE4D006050EC /* CustomAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC2052C50FE4D006050EC /* CustomAlertView.swift */; };
+		FC3AC2062C50FE4D006050EC /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC2052C50FE4D006050EC /* AlertView.swift */; };
 		FC3AC20C2C517A0D006050EC /* OnboardingStepView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC20B2C517A0D006050EC /* OnboardingStepView.swift */; };
 		FC3AC20E2C517CEF006050EC /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC20D2C517CEF006050EC /* OnboardingScreen.swift */; };
 		FC3AC2102C5184F8006050EC /* CustomTabIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC20F2C5184F8006050EC /* CustomTabIndicator.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FC10113A2C541BB400748752 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		FC26DBC02C4A834300BF4F1F /* ProScore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProScore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC26DBC32C4A834300BF4F1F /* ProScoreApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProScoreApp.swift; sourceTree = "<group>"; };
 		FC26DBC72C4A834400BF4F1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +59,7 @@
 		FC26DBE32C4D63BE00BF4F1F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		FC26DBE52C4D651800BF4F1F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FC26DBE72C4D6D9A00BF4F1F /* TeamScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamScreen.swift; sourceTree = "<group>"; };
-		FC3AC1A02C4D6F5A006050EC /* CustomButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButtonView.swift; sourceTree = "<group>"; };
+		FC3AC1A02C4D6F5A006050EC /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		FC3AC1A42C4E3AE8006050EC /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersistenceController.swift; path = ProScore/Utilities/PersistenceController.swift; sourceTree = SOURCE_ROOT; };
 		FC3AC1A92C4E3BCC006050EC /* TeamModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TeamModel.xcdatamodel; sourceTree = "<group>"; };
 		FC3AC1AD2C4E3C89006050EC /* TeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamViewModel.swift; sourceTree = "<group>"; };
@@ -84,7 +86,7 @@
 		FC3AC1FE2C50DCC1006050EC /* StatisticsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsViewModel.swift; sourceTree = "<group>"; };
 		FC3AC2002C50E322006050EC /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
 		FC3AC2032C50E374006050EC /* SettingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCellView.swift; sourceTree = "<group>"; };
-		FC3AC2052C50FE4D006050EC /* CustomAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertView.swift; sourceTree = "<group>"; };
+		FC3AC2052C50FE4D006050EC /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
 		FC3AC20B2C517A0D006050EC /* OnboardingStepView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepView.swift; sourceTree = "<group>"; };
 		FC3AC20D2C517CEF006050EC /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		FC3AC20F2C5184F8006050EC /* CustomTabIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabIndicator.swift; sourceTree = "<group>"; };
@@ -222,8 +224,8 @@
 		FC26DBDC2C4A84DE00BF4F1F /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				FC3AC2052C50FE4D006050EC /* CustomAlertView.swift */,
-				FC3AC1A02C4D6F5A006050EC /* CustomButtonView.swift */,
+				FC3AC2052C50FE4D006050EC /* AlertView.swift */,
+				FC3AC1A02C4D6F5A006050EC /* ButtonView.swift */,
 				FC3AC1B12C4E4C5A006050EC /* TextFieldView.swift */,
 				FC3AC1C32C4F8676006050EC /* TitleView.swift */,
 				FC3AC1DF2C4FAD5A006050EC /* SheetTitleView.swift */,
@@ -264,6 +266,7 @@
 				FC3AC1E12C4FB203006050EC /* CalendarCellView.swift */,
 				FC3AC1DD2C4F9C12006050EC /* CalendarSheetView.swift */,
 				FC3AC1C52C4F86CE006050EC /* CalendarScreen.swift */,
+				FC10113A2C541BB400748752 /* CalendarView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -414,6 +417,7 @@
 				FC3AC20C2C517A0D006050EC /* OnboardingStepView.swift in Sources */,
 				FC3AC20E2C517CEF006050EC /* OnboardingScreen.swift in Sources */,
 				FC3AC1E22C4FB203006050EC /* CalendarCellView.swift in Sources */,
+				FC10113B2C541BB400748752 /* CalendarView.swift in Sources */,
 				FC3AC1F62C503860006050EC /* StatisticsSheetView.swift in Sources */,
 				FC3AC1C42C4F8676006050EC /* TitleView.swift in Sources */,
 				FC3AC1A52C4E3AE8006050EC /* PersistenceController.swift in Sources */,
@@ -425,10 +429,10 @@
 				FC3AC1ED2C50123E006050EC /* Participant+CoreDataClass.swift in Sources */,
 				FC26DBC42C4A834300BF4F1F /* ProScoreApp.swift in Sources */,
 				FC3AC2102C5184F8006050EC /* CustomTabIndicator.swift in Sources */,
-				FC3AC1A12C4D6F5A006050EC /* CustomButtonView.swift in Sources */,
+				FC3AC1A12C4D6F5A006050EC /* ButtonView.swift in Sources */,
 				FC3AC2122C522B3F006050EC /* SplashScreen.swift in Sources */,
 				FC3AC1D72C4F8F12006050EC /* Event+CoreDataClass.swift in Sources */,
-				FC3AC2062C50FE4D006050EC /* CustomAlertView.swift in Sources */,
+				FC3AC2062C50FE4D006050EC /* AlertView.swift in Sources */,
 				FC3AC1AA2C4E3BCC006050EC /* TeamModel.xcdatamodeld in Sources */,
 				FC3AC1F42C503648006050EC /* StatisticsScreen.swift in Sources */,
 				FC3AC1FF2C50DCC1006050EC /* StatisticsViewModel.swift in Sources */,
@@ -595,7 +599,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -630,7 +634,7 @@
 				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

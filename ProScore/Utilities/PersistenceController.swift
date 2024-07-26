@@ -2,11 +2,12 @@ import Foundation
 import CoreData
 
 struct PersistenceController {
+    
     static let shared = PersistenceController()
     
     let container: NSPersistentContainer
     
-    init() {
+    private init() {
         container = NSPersistentContainer(name: "TeamModel")
         container.loadPersistentStores { (description, error) in
             if let error = error {
@@ -17,20 +18,10 @@ struct PersistenceController {
     
     func resetData() {
         let context = container.viewContext
-        let fetchRequests: [NSFetchRequest<NSFetchRequestResult>] = [
-            Team.fetchRequest(),
-            Participant.fetchRequest(),
-            Event.fetchRequest(),
-            TeamStats.fetchRequest()
-        ]
+        let entityNames = ["Team", "Participant", "Event", "TeamStats"]
         
-        fetchRequests.forEach { fetchRequest in
-            let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-            do {
-                try context.execute(batchDeleteRequest)
-            } catch {
-                print("Failed to execute batch delete request: \(error.localizedDescription)")
-            }
+        entityNames.forEach { entityName in
+            deleteAllData(for: entityName, context: context)
         }
         
         saveContext()
@@ -47,6 +38,15 @@ struct PersistenceController {
             }
         }
     }
+    
+    private func deleteAllData(for entityName: String, context: NSManagedObjectContext) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: entityName)
+        let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        
+        do {
+            try context.execute(batchDeleteRequest)
+        } catch {
+            print("Failed to execute batch delete request for \(entityName): \(error.localizedDescription)")
+        }
+    }
 }
-
-

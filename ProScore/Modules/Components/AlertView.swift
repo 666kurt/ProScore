@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct CustomAlertView: View {
+struct AlertView: View {
     
     @Binding var showAlert: Bool
     let title: String
@@ -59,7 +59,7 @@ struct CustomAlertView: View {
 }
 
 #Preview {
-    CustomAlertView(showAlert: .constant(true),
+    AlertView(showAlert: .constant(true),
                     title: "Reset data",
                     description: "Do you really want to reset the data? It'll cause you to lose progress.",
                     buttonLabel: "Reset") {

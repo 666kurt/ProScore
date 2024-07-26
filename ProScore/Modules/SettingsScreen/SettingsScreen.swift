@@ -26,7 +26,7 @@ struct SettingsScreen: View {
                 
                 Spacer()
                 
-                CustomButtonView(buttonLabel: "Reset data") {
+                ButtonView(buttonLabel: "Reset data") {
                     showAlert.toggle()
                 }
                 .offset(y: -16)
@@ -41,7 +41,7 @@ struct SettingsScreen: View {
             if showAlert {
                 Color.black.opacity(0.5)
                     .edgesIgnoringSafeArea(.all)
-                CustomAlertView(showAlert: $showAlert,
+                AlertView(showAlert: $showAlert,
                                 title: "Reset data",
                                 description: "Do you really want to reset the data? It'll cause you to lose progress.", buttonLabel: "Reset",
                                 onReset: resetData)

@@ -9,15 +9,10 @@ struct StatisticsScreen: View {
     
     var body: some View {
         VStack {
-            
             TitleView(title: "Statistics")
-            
             gamePickerView
-            
             statisticsCellsView
-            
-            editButtonView
-            
+            editButtonView        
         }
         .padding(.horizontal, 20)
         .frame(maxHeight: .infinity, alignment: .top)

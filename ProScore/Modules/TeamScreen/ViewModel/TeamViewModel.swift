@@ -1,19 +1,10 @@
-//
-//  TeamViewModel.swift
-//  ProScore
-//
-//  Created by Максим Шишлов on 22.07.2024.
-//
-
 import SwiftUI
 import CoreData
 
 class TeamViewModel: ObservableObject {
     @Published var name: String = ""
     @Published var image: UIImage? = nil
-    
     @Published var participant: [Participant] = []
-    
     @Published var isImagePickerPresented: Bool = false
     
     private let context = PersistenceController.shared.container.viewContext
@@ -24,18 +15,10 @@ class TeamViewModel: ObservableObject {
     }
     
     func saveTeam() {
-        let fetchRequest: NSFetchRequest<Team> = Team.fetchRequest()
-        fetchRequest.fetchLimit = 1
         do {
-            let teams = try context.fetch(fetchRequest)
-            if let existingTeam = teams.first {
-                existingTeam.name = name
-                existingTeam.imageData = image?.pngData()
-            } else {
-                let newTeam = Team(context: context)
-                newTeam.name = name
-                newTeam.imageData = image?.pngData()
-            }
+            let team = try fetchSingleTeam() ?? Team(context: context)
+            team.name = name
+            team.imageData = image?.pngData()
             try context.save()
         } catch {
             print("Failed to save team: \(error.localizedDescription)")
@@ -43,13 +26,11 @@ class TeamViewModel: ObservableObject {
     }
     
     func fetchTeam() {
-        let fetchRequest: NSFetchRequest<Team> = Team.fetchRequest()
         do {
-            let teams = try context.fetch(fetchRequest)
-            if let team = teams.first {
-                self.name = team.name ?? ""
+            if let team = try fetchSingleTeam() {
+                name = team.name ?? ""
                 if let imageData = team.imageData {
-                    self.image = UIImage(data: imageData)
+                    image = UIImage(data: imageData)
                 }
             }
         } catch {
@@ -57,13 +38,12 @@ class TeamViewModel: ObservableObject {
         }
     }
     
-    
     func fetchParticipant() {
         let request: NSFetchRequest<Participant> = Participant.fetchRequest()
         do {
             participant = try context.fetch(request)
         } catch {
-            print("Failed to fetch events: \(error.localizedDescription)")
+            print("Failed to fetch participants: \(error.localizedDescription)")
         }
     }
     
@@ -85,7 +65,22 @@ class TeamViewModel: ObservableObject {
         fetchParticipant()
     }
     
-    func saveContext() {
+    func resetData() {
+        deleteAllData(for: Team.self)
+        deleteAllData(for: Participant.self)
+        name = ""
+        image = nil
+        participant.removeAll()
+    }
+    
+    private func fetchSingleTeam() throws -> Team? {
+        let fetchRequest: NSFetchRequest<Team> = Team.fetchRequest()
+        fetchRequest.fetchLimit = 1
+        let teams = try context.fetch(fetchRequest)
+        return teams.first
+    }
+    
+    private func saveContext() {
         if context.hasChanges {
             do {
                 try context.save()
@@ -95,26 +90,14 @@ class TeamViewModel: ObservableObject {
         }
     }
     
-    func resetData() {
-
-            let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Team.fetchRequest()
-            let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-            
-            let fetchParticipantRequest: NSFetchRequest<NSFetchRequestResult> = Participant.fetchRequest()
-            let deleteParticipantRequest = NSBatchDeleteRequest(fetchRequest: fetchParticipantRequest)
-            
-            do {
-                try context.execute(deleteRequest)
-                try context.execute(deleteParticipantRequest)
-                try context.save()
-                
-                self.name = ""
-                self.image = nil
-                self.participant.removeAll()
-                
-            } catch {
-                print("Failed to reset data: \(error.localizedDescription)")
-            }
+    private func deleteAllData<T: NSFetchRequestResult>(for entity: T.Type) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: entity))
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
+        do {
+            try context.execute(deleteRequest)
+        } catch {
+            print("Failed to delete data for \(entity): \(error.localizedDescription)")
         }
-    
+        saveContext()
+    }
 }

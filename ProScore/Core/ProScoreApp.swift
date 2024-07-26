@@ -3,10 +3,6 @@ import SwiftUI
 @main
 struct ProScoreApp: App {
     
-    init() {
-        UITableView.appearance().backgroundColor = .blue
-    }
-    
     let persistenceController = PersistenceController.shared
     
     @State private var showOnboarding = UserDefaults.standard.bool(forKey: "hasSeenOnboarding") == false

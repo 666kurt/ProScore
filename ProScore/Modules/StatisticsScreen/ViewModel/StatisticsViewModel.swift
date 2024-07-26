@@ -4,7 +4,7 @@ import CoreData
 class StatisticsViewModel: ObservableObject {
     @Published var selectedTeam: String = "Dota2"
     @Published var teamStats: [TeamStats] = []
-    let context = PersistenceController.shared.container.viewContext
+    private let context = PersistenceController.shared.container.viewContext
     
     init() {
         fetchStats()
@@ -34,24 +34,33 @@ class StatisticsViewModel: ObservableObject {
             newStats.firstPlaces = firstPlaces
             newStats.players = players
         }
-        
-        do {
-            try context.save()
-            fetchStats()
-        } catch {
-            print("Error saving data: \(error.localizedDescription)")
-        }
+        saveContext()
+        fetchStats()
     }
     
     func resetData() {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = TeamStats.fetchRequest()
+        deleteAllData(for: TeamStats.self)
+        fetchStats()
+    }
+    
+    private func saveContext() {
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                print("Failed to save context: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    private func deleteAllData<T: NSFetchRequestResult>(for entity: T.Type) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: entity))
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         do {
             try context.execute(deleteRequest)
-            try context.save()
         } catch {
-            print("Failed to reset data: \(error.localizedDescription)")
+            print("Failed to delete data for \(entity): \(error.localizedDescription)")
         }
-        fetchStats()
+        saveContext()
     }
 }

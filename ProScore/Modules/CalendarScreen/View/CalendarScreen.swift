@@ -3,26 +3,20 @@ import SwiftUI
 // MARK: - CalendarScreen
 
 struct CalendarScreen: View {
-    
     @EnvironmentObject private var viewModel: CalendarViewModel
     @State private var showingAddEvent = false
-    
+
     var body: some View {
-        
         VStack {
-            
             TitleView(title: "Calendar")
-            
             calendarView
-            
             activitiesView
-            
+
             if viewModel.eventsForSelectedDate.isEmpty {
                 eventsListTitleView
             } else {
                 eventsListView
             }
-            
         }
         .padding(.horizontal, 20)
         .background(
@@ -41,22 +35,13 @@ struct CalendarScreen: View {
 // MARK: - CalendarScreen's components
 
 extension CalendarScreen {
-    
     private var calendarView: some View {
-        DatePicker("",
-                   selection: $viewModel.selectedDate,
-                   displayedComponents: [.date])
-        .datePickerStyle(.graphical)
-        .id(viewModel.selectedDate)
-        .colorScheme(.dark)
-        .background(Color.theme.other.calendar)
-        .onChange(of: viewModel.selectedDate) { _ in
-            viewModel.fetchEvents()
-        }
-        .frame(width: 360, height: 320)
-        .clipShape(RoundedRectangle(cornerRadius: 10))
+        CalendarView(selectedDate: $viewModel.selectedDate)
+            .onChange(of: viewModel.selectedDate) { _ in
+                viewModel.fetchEvents()
+            }
     }
-    
+
     private var activitiesView: some View {
         HStack {
             Text("Activities")
@@ -65,25 +50,27 @@ extension CalendarScreen {
             Spacer()
             Button(action: {
                 showingAddEvent.toggle()
-            }, label: {
+            }) {
                 Image(systemName: "plus")
-            })
+            }
         }
         .padding(.vertical, 15)
     }
-    
+
     private var eventsListView: some View {
         ScrollView(showsIndicators: false) {
             LazyVStack {
                 ForEach(viewModel.eventsForSelectedDate) { event in
-                    CalendarCellView(title: event.name ?? "",
-                                     time: event.startTime ?? Date(),
-                                     date: event.date ?? Date())
+                    CalendarCellView(
+                        title: event.name ?? "",
+                        time: event.startTime ?? Date(),
+                        date: event.date ?? Date()
+                    )
                 }
             }
         }
     }
-    
+
     private var eventsListTitleView: some View {
         Text("There are no scheduled\nholidays for this day")
             .font(.callout)
@@ -92,7 +79,6 @@ extension CalendarScreen {
             .multilineTextAlignment(.center)
             .padding(.top, 75)
     }
-    
 }
 
 #Preview {

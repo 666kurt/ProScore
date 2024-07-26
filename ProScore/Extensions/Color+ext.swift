@@ -34,9 +34,9 @@ struct ColorTheme {
     }
     
     struct OtherColors {
-        let primary = Color("primaryColor")
-        let secondary = Color("secondaryColor")
-        let separator = Color("separatorColor")
+        let primary = Color("mainColor")
+        let secondary = Color("secondColor")
+        let separator = Color("dividerColor")
         let calendar = Color("calendarColor")
         let tabbar = Color("tabbarColor")
         let disabled = Color("disabledColor")

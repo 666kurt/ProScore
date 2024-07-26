@@ -1,6 +1,5 @@
-import Foundation
-import CoreData
 import SwiftUI
+import CoreData
 
 class CalendarViewModel: ObservableObject {
     @Published var events: [Event] = []
@@ -30,16 +29,6 @@ class CalendarViewModel: ObservableObject {
         fetchEvents()
     }
     
-    func saveContext() {
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                print("Failed to save context: \(error.localizedDescription)")
-            }
-        }
-    }
-    
     var eventsForSelectedDate: [Event] {
         let calendar = Calendar.current
         return events.filter { event in
@@ -49,15 +38,28 @@ class CalendarViewModel: ObservableObject {
     }
     
     func resetData() {
-        let fetchRequest: NSFetchRequest<NSFetchRequestResult> = Event.fetchRequest()
+        deleteAllData(for: Event.self)
+        fetchEvents()
+    }
+    
+    private func saveContext() {
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                print("Failed to save context: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    private func deleteAllData<T: NSFetchRequestResult>(for entity: T.Type) {
+        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: String(describing: entity))
         let deleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         do {
             try context.execute(deleteRequest)
-            try context.save()
         } catch {
-            print("Failed to reset data: \(error.localizedDescription)")
+            print("Failed to delete data for \(entity): \(error.localizedDescription)")
         }
-        fetchEvents()
+        saveContext()
     }
 }
-
