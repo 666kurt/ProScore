@@ -15,6 +15,15 @@
 		FC26DBE42C4D63BE00BF4F1F /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC26DBE32C4D63BE00BF4F1F /* Router.swift */; };
 		FC26DBE62C4D651800BF4F1F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC26DBE52C4D651800BF4F1F /* ContentView.swift */; };
 		FC26DBE82C4D6D9A00BF4F1F /* TeamScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC26DBE72C4D6D9A00BF4F1F /* TeamScreen.swift */; };
+		FC32DC4F2C59295D008E289B /* AppMetricaAdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = FC32DC4E2C59295D008E289B /* AppMetricaAdSupport */; };
+		FC32DC512C59295D008E289B /* AppMetricaCore in Frameworks */ = {isa = PBXBuildFile; productRef = FC32DC502C59295D008E289B /* AppMetricaCore */; };
+		FC32DC532C59295D008E289B /* AppMetricaCrashes in Frameworks */ = {isa = PBXBuildFile; productRef = FC32DC522C59295D008E289B /* AppMetricaCrashes */; };
+		FC32DC552C59295D008E289B /* AppMetricaWebKit in Frameworks */ = {isa = PBXBuildFile; productRef = FC32DC542C59295D008E289B /* AppMetricaWebKit */; };
+		FC32DC582C592995008E289B /* ApphudSDK in Frameworks */ = {isa = PBXBuildFile; productRef = FC32DC572C592995008E289B /* ApphudSDK */; };
+		FC32DC5B2C592A72008E289B /* OneSignalExtension in Frameworks */ = {isa = PBXBuildFile; productRef = FC32DC5A2C592A72008E289B /* OneSignalExtension */; };
+		FC32DC5D2C592A72008E289B /* OneSignalFramework in Frameworks */ = {isa = PBXBuildFile; productRef = FC32DC5C2C592A72008E289B /* OneSignalFramework */; };
+		FC32DC5F2C592A72008E289B /* OneSignalInAppMessages in Frameworks */ = {isa = PBXBuildFile; productRef = FC32DC5E2C592A72008E289B /* OneSignalInAppMessages */; };
+		FC32DC612C592A72008E289B /* OneSignalLocation in Frameworks */ = {isa = PBXBuildFile; productRef = FC32DC602C592A72008E289B /* OneSignalLocation */; };
 		FC3AC1A12C4D6F5A006050EC /* ButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1A02C4D6F5A006050EC /* ButtonView.swift */; };
 		FC3AC1A52C4E3AE8006050EC /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1A42C4E3AE8006050EC /* PersistenceController.swift */; };
 		FC3AC1AA2C4E3BCC006050EC /* TeamModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC1A82C4E3BCC006050EC /* TeamModel.xcdatamodeld */; };
@@ -59,6 +68,7 @@
 		FC26DBE32C4D63BE00BF4F1F /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		FC26DBE52C4D651800BF4F1F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		FC26DBE72C4D6D9A00BF4F1F /* TeamScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamScreen.swift; sourceTree = "<group>"; };
+		FC32DC622C592AFB008E289B /* ProScore.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ProScore.entitlements; sourceTree = "<group>"; };
 		FC3AC1A02C4D6F5A006050EC /* ButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonView.swift; sourceTree = "<group>"; };
 		FC3AC1A42C4E3AE8006050EC /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PersistenceController.swift; path = ProScore/Utilities/PersistenceController.swift; sourceTree = SOURCE_ROOT; };
 		FC3AC1A92C4E3BCC006050EC /* TeamModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = TeamModel.xcdatamodel; sourceTree = "<group>"; };
@@ -98,6 +108,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC32DC552C59295D008E289B /* AppMetricaWebKit in Frameworks */,
+				FC32DC5B2C592A72008E289B /* OneSignalExtension in Frameworks */,
+				FC32DC5D2C592A72008E289B /* OneSignalFramework in Frameworks */,
+				FC32DC532C59295D008E289B /* AppMetricaCrashes in Frameworks */,
+				FC32DC612C592A72008E289B /* OneSignalLocation in Frameworks */,
+				FC32DC582C592995008E289B /* ApphudSDK in Frameworks */,
+				FC32DC4F2C59295D008E289B /* AppMetricaAdSupport in Frameworks */,
+				FC32DC5F2C592A72008E289B /* OneSignalInAppMessages in Frameworks */,
+				FC32DC512C59295D008E289B /* AppMetricaCore in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,6 +142,7 @@
 		FC26DBC22C4A834300BF4F1F /* ProScore */ = {
 			isa = PBXGroup;
 			children = (
+				FC32DC622C592AFB008E289B /* ProScore.entitlements */,
 				FC26DBD12C4A837800BF4F1F /* Core */,
 				FC26DBD22C4A839400BF4F1F /* Modules */,
 				FC26DBD52C4A844200BF4F1F /* Models */,
@@ -351,6 +371,17 @@
 			dependencies = (
 			);
 			name = ProScore;
+			packageProductDependencies = (
+				FC32DC4E2C59295D008E289B /* AppMetricaAdSupport */,
+				FC32DC502C59295D008E289B /* AppMetricaCore */,
+				FC32DC522C59295D008E289B /* AppMetricaCrashes */,
+				FC32DC542C59295D008E289B /* AppMetricaWebKit */,
+				FC32DC572C592995008E289B /* ApphudSDK */,
+				FC32DC5A2C592A72008E289B /* OneSignalExtension */,
+				FC32DC5C2C592A72008E289B /* OneSignalFramework */,
+				FC32DC5E2C592A72008E289B /* OneSignalInAppMessages */,
+				FC32DC602C592A72008E289B /* OneSignalLocation */,
+			);
 			productName = ProScore;
 			productReference = FC26DBC02C4A834300BF4F1F /* ProScore.app */;
 			productType = "com.apple.product-type.application";
@@ -379,6 +410,11 @@
 				Base,
 			);
 			mainGroup = FC26DBB72C4A834300BF4F1F;
+			packageReferences = (
+				FC32DC4D2C59295D008E289B /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */,
+				FC32DC562C592995008E289B /* XCRemoteSwiftPackageReference "ApphudSDK" */,
+				FC32DC592C592A72008E289B /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */,
+			);
 			productRefGroup = FC26DBC12C4A834300BF4F1F /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -501,7 +537,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -558,7 +594,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -573,10 +609,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = ProScore/ProScore.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ProScore/Preview Content\"";
-				DEVELOPMENT_TEAM = CTY44DYVYJ;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = ProScore;
@@ -591,8 +629,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = blessthedevil.ProScore;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ale.gl0ryz0ne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -608,10 +647,12 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_ENTITLEMENTS = ProScore/ProScore.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ProScore/Preview Content\"";
-				DEVELOPMENT_TEAM = CTY44DYVYJ;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = ProScore;
@@ -626,8 +667,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = blessthedevil.ProScore;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ale.gl0ryz0ne;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
@@ -660,6 +702,81 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FC32DC4D2C59295D008E289B /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/appmetrica/appmetrica-sdk-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.0;
+			};
+		};
+		FC32DC562C592995008E289B /* XCRemoteSwiftPackageReference "ApphudSDK" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apphud/ApphudSDK";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.4.0;
+			};
+		};
+		FC32DC592C592A72008E289B /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/OneSignal/OneSignal-XCFramework";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.2.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FC32DC4E2C59295D008E289B /* AppMetricaAdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC32DC4D2C59295D008E289B /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */;
+			productName = AppMetricaAdSupport;
+		};
+		FC32DC502C59295D008E289B /* AppMetricaCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC32DC4D2C59295D008E289B /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */;
+			productName = AppMetricaCore;
+		};
+		FC32DC522C59295D008E289B /* AppMetricaCrashes */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC32DC4D2C59295D008E289B /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */;
+			productName = AppMetricaCrashes;
+		};
+		FC32DC542C59295D008E289B /* AppMetricaWebKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC32DC4D2C59295D008E289B /* XCRemoteSwiftPackageReference "appmetrica-sdk-ios" */;
+			productName = AppMetricaWebKit;
+		};
+		FC32DC572C592995008E289B /* ApphudSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC32DC562C592995008E289B /* XCRemoteSwiftPackageReference "ApphudSDK" */;
+			productName = ApphudSDK;
+		};
+		FC32DC5A2C592A72008E289B /* OneSignalExtension */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC32DC592C592A72008E289B /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalExtension;
+		};
+		FC32DC5C2C592A72008E289B /* OneSignalFramework */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC32DC592C592A72008E289B /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalFramework;
+		};
+		FC32DC5E2C592A72008E289B /* OneSignalInAppMessages */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC32DC592C592A72008E289B /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalInAppMessages;
+		};
+		FC32DC602C592A72008E289B /* OneSignalLocation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FC32DC592C592A72008E289B /* XCRemoteSwiftPackageReference "OneSignal-XCFramework" */;
+			productName = OneSignalLocation;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		FC3AC1A82C4E3BCC006050EC /* TeamModel.xcdatamodeld */ = {

@@ -1,10 +1,3 @@
-//
-//  SettingsCellView.swift
-//  ProScore
-//
-//  Created by Максим Шишлов on 24.07.2024.
-//
-
 import SwiftUI
 
 struct SettingsCellView: View {

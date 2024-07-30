@@ -18,10 +18,13 @@ struct SettingsScreen: View {
                 TitleView(title: "Settings")
                 
                 VStack(spacing: 0) {
-                    SettingsCellView(image: "bubble.fill", title: "Contact us")
-                    SettingsCellView(image: "shield.fill", title: "Privacy")
-                    SettingsCellView(image: "menucard.fill", title: "Terms of use")
-                    SettingsCellView(image: "wallet.pass.fill", title: "License")
+                    Link(destination: URL(string: "https://www.termsfeed.com/live/f6226db8-c0a0-4b22-b60a-bebb89057d94")!, label: {
+                        SettingsCellView(image: "shield.fill", title: "Privacy")
+                    })
+                    Link(destination: URL(string: "https://www.termsfeed.com/live/17ff4c27-7388-4426-a803-69d88e65fed0")!, label: {
+                        SettingsCellView(image: "menucard.fill", title: "Terms of use")
+                    })
+                    
                 }
                 
                 Spacer()
