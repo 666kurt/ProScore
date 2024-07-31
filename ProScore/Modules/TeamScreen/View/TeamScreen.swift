@@ -8,7 +8,7 @@ struct TeamScreen: View {
     @State private var showTeamListView = false
     @State private var showAlert = false
     @State private var indexSetToDelete: IndexSet?
-
+        
     var body: some View {
         ZStack {
             VStack {

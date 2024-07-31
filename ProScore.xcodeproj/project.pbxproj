@@ -56,6 +56,7 @@
 		FC3AC20E2C517CEF006050EC /* OnboardingScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC20D2C517CEF006050EC /* OnboardingScreen.swift */; };
 		FC3AC2102C5184F8006050EC /* CustomTabIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC20F2C5184F8006050EC /* CustomTabIndicator.swift */; };
 		FC3AC2122C522B3F006050EC /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC2112C522B3F006050EC /* SplashScreen.swift */; };
+		FCCF31892C5AA067001AB18C /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCF31882C5AA067001AB18C /* WebViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -101,6 +102,7 @@
 		FC3AC20D2C517CEF006050EC /* OnboardingScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingScreen.swift; sourceTree = "<group>"; };
 		FC3AC20F2C5184F8006050EC /* CustomTabIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabIndicator.swift; sourceTree = "<group>"; };
 		FC3AC2112C522B3F006050EC /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		FCCF31882C5AA067001AB18C /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -143,6 +145,7 @@
 			isa = PBXGroup;
 			children = (
 				FC32DC622C592AFB008E289B /* ProScore.entitlements */,
+				FCCF31872C5AA045001AB18C /* WebViewSystem */,
 				FC26DBD12C4A837800BF4F1F /* Core */,
 				FC26DBD22C4A839400BF4F1F /* Modules */,
 				FC26DBD52C4A844200BF4F1F /* Models */,
@@ -355,6 +358,14 @@
 			path = "Onboarding & Splash";
 			sourceTree = "<group>";
 		};
+		FCCF31872C5AA045001AB18C /* WebViewSystem */ = {
+			isa = PBXGroup;
+			children = (
+				FCCF31882C5AA067001AB18C /* WebViewModel.swift */,
+			);
+			path = WebViewSystem;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -454,6 +465,7 @@
 				FC3AC20E2C517CEF006050EC /* OnboardingScreen.swift in Sources */,
 				FC3AC1E22C4FB203006050EC /* CalendarCellView.swift in Sources */,
 				FC10113B2C541BB400748752 /* CalendarView.swift in Sources */,
+				FCCF31892C5AA067001AB18C /* WebViewModel.swift in Sources */,
 				FC3AC1F62C503860006050EC /* StatisticsSheetView.swift in Sources */,
 				FC3AC1C42C4F8676006050EC /* TitleView.swift in Sources */,
 				FC3AC1A52C4E3AE8006050EC /* PersistenceController.swift in Sources */,
