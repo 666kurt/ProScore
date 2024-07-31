@@ -5,41 +5,54 @@ struct ContentView: View {
     @StateObject var teamViewModel = TeamViewModel()
     @StateObject var calendarViewModel = CalendarViewModel()
     @StateObject var statisticsViewModel = StatisticsViewModel()
+    
+    @StateObject var webViewModel: WebViewModel
 
     var body: some View {
-        TabView(selection: $router.selectedScreen) {
-            TeamScreen()
-                .tabItem {
-                    Label("Team", systemImage: "person.2.fill")
-                }
-                .tag(Screens.team)
-                .environmentObject(teamViewModel)
+        ZStack {
+            TabView(selection: $router.selectedScreen) {
+                TeamScreen()
+                    .tabItem {
+                        Label("Team", systemImage: "person.2.fill")
+                    }
+                    .tag(Screens.team)
+                    .environmentObject(teamViewModel)
 
-            CalendarScreen()
-                .tabItem {
-                    Label("Calendar", systemImage: "calendar")
-                }
-                .tag(Screens.calendar)
-                .environmentObject(calendarViewModel)
+                CalendarScreen()
+                    .tabItem {
+                        Label("Calendar", systemImage: "calendar")
+                    }
+                    .tag(Screens.calendar)
+                    .environmentObject(calendarViewModel)
 
-            StatisticsScreen()
-                .tabItem {
-                    Label("Statistics", systemImage: "chart.line.uptrend.xyaxis")
-                }
-                .tag(Screens.statistics)
-                .environmentObject(statisticsViewModel)
+                StatisticsScreen()
+                    .tabItem {
+                        Label("Statistics", systemImage: "chart.line.uptrend.xyaxis")
+                    }
+                    .tag(Screens.statistics)
+                    .environmentObject(statisticsViewModel)
 
-            SettingsScreen()
-                .tabItem {
-                    Label("Settings", systemImage: "gearshape.fill")
-                }
-                .tag(Screens.settings)
-                .environmentObject(teamViewModel)
-                .environmentObject(calendarViewModel)
-                .environmentObject(statisticsViewModel)
+                SettingsScreen()
+                    .tabItem {
+                        Label("Settings", systemImage: "gearshape.fill")
+                    }
+                    .tag(Screens.settings)
+                    .environmentObject(teamViewModel)
+                    .environmentObject(calendarViewModel)
+                    .environmentObject(statisticsViewModel)
+            }
+            .accentColor(Color.theme.text.main)
+            .onAppear(perform: setupTabBarAppearance)
+            .onAppear {
+                webViewModel.fetchConfig() // Запуск запроса конфигурации при загрузке
+            }
+            
+            // Отображение WebView
+            if webViewModel.showWebView, let url = webViewModel.url {
+                WebView(url: url)
+                    .edgesIgnoringSafeArea(.all)
+            }
         }
-        .accentColor(Color.theme.text.main)
-        .onAppear(perform: setupTabBarAppearance)
     }
 
     private func setupTabBarAppearance() {
@@ -56,7 +69,7 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    ContentView(webViewModel: WebViewModel(appDelegate: AppDelegate()))
         .environmentObject(Router.shared)
         .environmentObject(TeamViewModel())
         .environmentObject(CalendarViewModel())

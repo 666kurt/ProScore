@@ -53,7 +53,7 @@ class WebViewModel: ObservableObject {
     private func handleConfigResponse(_ config: ConfigResponse) {
         let savedURL = UserDefaults.standard.string(forKey: "savedURL")
         let currentDate = Date()
-        
+
         // Форматирование даты из строки
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"

@@ -151,7 +151,7 @@ extension TeamScreen {
 }
 
 #Preview {
-    ContentView()
+    ContentView(webViewModel: WebViewModel(appDelegate: AppDelegate()))
         .environmentObject(Router.shared)
 }
 

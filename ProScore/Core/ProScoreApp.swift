@@ -21,122 +21,139 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         AppMetrica.activate(with: configuration!)
         
         collectDeviceInfo()
-//        printDeviceInfo()
+        // printDeviceInfo()
         
         return true
     }
     
     func collectDeviceInfo() {
+  
+        // Имя девайса
+        deviceInfo["gfdokPS"] = UIDevice.current.name
         
-            #warning("Доделать ВПН, скриншот, скринкаст, установленные приложения")
+        // Имя модели
+        deviceInfo["gdpsjPjg"] = UIDevice.current.model
         
-            // VPN
-            deviceInfo["vivisWork"] = isVPNConnected()
-            
-            // Имя девайса
-            deviceInfo["gfdokPS"] = UIDevice.current.name
-            
-            // Имя модели
-            deviceInfo["gdpsjPjg"] = UIDevice.current.model
-            
-            // Уник номер
-            deviceInfo["poguaKFP"] = UIDevice.current.identifierForVendor?.uuidString
-            
-            // Wi-Fi
-            deviceInfo["gpaMFOfa"] = fetchWiFiAddress()
-            
-            // Сим-карта
-            deviceInfo["gciOFm"] = fetchCarrierName()
-            
-            // Версия iOS
-            deviceInfo["bcpJFs"] = UIDevice.current.systemVersion
-            
-            // Язык девайса
-            deviceInfo["GOmblx"] = Locale.current.languageCode
-            
-            // Тайм-зона
-            deviceInfo["G0pxum"] = TimeZone.current.identifier
-            
-            // Заряжается ли
-            UIDevice.current.isBatteryMonitoringEnabled = true
-            deviceInfo["Fpvbduwm"] = UIDevice.current.batteryState == .charging || UIDevice.current.batteryState == .full
-            
-            // Объем памяти
-            deviceInfo["Fpbjcv"] = fetchMemorySize()
-            
-            // Скриншот ли ???????
-            deviceInfo["StwPp"] = false
-            
-            // Скринкаст ли ???????
-            deviceInfo["KDhsd"] = false
-            
-            // Наличие прил
-            deviceInfo["bvoikOGjs"] = fetchInstalledApps()
-            
-            // Уровень заряда
-            deviceInfo["gfpbvjsoM"] = Int(UIDevice.current.batteryLevel * 100)
-            
-            // Клавиатуры
-            deviceInfo["gfdosnb"] = fetchKeyboards()
-            
-            // Регион
-            deviceInfo["bpPjfns"] = Locale.current.regionCode
-            
-            // Метрическая ли
-            deviceInfo["biMpaiuf"] = Locale.current.usesMetricSystem
-            
-            // Полная ли зарядка
-            deviceInfo["oahgoMAOI"] = UIDevice.current.batteryState == .full
-        }
+        // Уник номер
+        deviceInfo["poguaKFP"] = UIDevice.current.identifierForVendor?.uuidString
         
-        func fetchWiFiAddress() -> String? {
-            if let interfaces = CNCopySupportedInterfaces() as NSArray? {
-                for interface in interfaces {
-                    if let interfaceInfo = CNCopyCurrentNetworkInfo(interface as! CFString) as NSDictionary? {
-                        return interfaceInfo[kCNNetworkInfoKeySSID as String] as? String
-                    }
+        // Версия iOS
+        deviceInfo["bcpJFs"] = UIDevice.current.systemVersion
+        
+        // Язык девайса
+        deviceInfo["GOmblx"] = Locale.current.languageCode
+        
+        // Тайм-зона
+        deviceInfo["G0pxum"] = TimeZone.current.identifier
+        
+        // Заряжается ли
+        UIDevice.current.isBatteryMonitoringEnabled = true
+        deviceInfo["Fpvbduwm"] = UIDevice.current.batteryState == .charging || UIDevice.current.batteryState == .full
+        
+        // Уровень заряда
+        deviceInfo["gfpbvjsoM"] = Int(UIDevice.current.batteryLevel * 100)
+        
+        // Регион
+        deviceInfo["bpPjfns"] = Locale.current.regionCode
+        
+        // Метрическая ли
+        deviceInfo["biMpaiuf"] = Locale.current.usesMetricSystem
+        
+        // Полная ли зарядка
+        deviceInfo["oahgoMAOI"] = UIDevice.current.batteryState == .full
+        
+        // Клавиатуры
+        deviceInfo["gfdosnb"] = fetchKeyboards()
+        
+        // Объем памяти
+        deviceInfo["Fpbjcv"] = fetchMemorySize()
+        
+        // Скриншот ли
+        deviceInfo["StwPp"] = isTakingScreenshot()
+        
+        // Скринкаст ли
+        deviceInfo["KDhsd"] = isScreenRecording()
+        
+        // Наличие прил
+        deviceInfo["bvoikOGjs"] = fetchInstalledApps()
+        
+        // Wi-Fi
+        deviceInfo["gpaMFOfa"] = fetchWiFiAddress()
+        
+        // Сим-карта
+        deviceInfo["gciOFm"] = fetchCarrierName()
+        
+        // VPN
+        deviceInfo["vivisWork"] = isVPNConnected()
+    }
+    
+    // Wi-Fi
+    func fetchWiFiAddress() -> String? {
+        if let interfaces = CNCopySupportedInterfaces() as NSArray? {
+            for interface in interfaces {
+                if let interfaceInfo = CNCopyCurrentNetworkInfo(interface as! CFString) as NSDictionary? {
+                    return interfaceInfo[kCNNetworkInfoKeySSID as String] as? String
                 }
             }
+        }
+        return nil
+    }
+    
+    // Сим-карта
+    func fetchCarrierName() -> String? {
+        let networkInfo = CTTelephonyNetworkInfo()
+        
+        guard let serviceId = networkInfo.dataServiceIdentifier else {
             return nil
         }
         
-        func fetchCarrierName() -> String? {
-            let networkInfo = CTTelephonyNetworkInfo()
-            
-            guard let serviceId = networkInfo.dataServiceIdentifier else {
-                return nil
-            }
-
-            let providers = networkInfo.serviceSubscriberCellularProviders
-
-            return providers?[serviceId]?.carrierName
-        }
+        let providers = networkInfo.serviceSubscriberCellularProviders
         
-        func fetchMemorySize() -> String? {
-            let memory = ProcessInfo.processInfo.physicalMemory
-            return ByteCountFormatter.string(fromByteCount: Int64(memory), countStyle: .memory)
-        }
-        
-        func fetchInstalledApps() -> [String: String] {
-            return [:]
-        }
-        
-        func fetchKeyboards() -> [String] {
-            let keyboardSettings = UserDefaults.standard.object(forKey: "AppleKeyboards") as? [String] ?? []
-            return keyboardSettings
-        }
+        return providers?[serviceId]?.carrierName
+    }
     
-        func printDeviceInfo() {
-                for (key, value) in deviceInfo {
-                    print("\(key): \(value)")
-                }
-            }
-        
-        func isVPNConnected() -> Bool {
-            // Метод для определения состояния VPN
-            // Примечание: это может требовать прав доступа и конфиденциальности.
-            return false
+    
+    // Память телефона
+    func fetchMemorySize() -> String? {
+        let memory = ProcessInfo.processInfo.physicalMemory
+        return ByteCountFormatter.string(fromByteCount: Int64(memory), countStyle: .memory)
+    }
+    
+    // Установленные прилы
+    #warning("Доделать!")
+    func fetchInstalledApps() -> [String: String] {
+        return [:]
+    }
+    
+    // Клавиатуры
+    func fetchKeyboards() -> [String] {
+        let keyboardSettings = UserDefaults.standard.object(forKey: "AppleKeyboards") as? [String] ?? []
+        return keyboardSettings
+    }
+    
+    #warning("Доделать!")
+    // Состояние ВПН
+    func isVPNConnected() -> Bool {
+        return false
+    }
+    
+    // Проверка на скриншот
+    func isTakingScreenshot() -> Bool {
+        return UIScreen.main.isCaptured
+    }
+    
+    // Проверка на скринкаст
+    func isScreenRecording() -> Bool {
+        return UIScreen.main.isCaptured
+    }
+    
+    #warning("Удалить, для теста")
+    func printDeviceInfo() {
+        for (key, value) in deviceInfo {
+            print("\(key): \(value)")
         }
+    }
+    
 }
 
 @main
@@ -152,6 +169,8 @@ struct ProScoreApp: App {
         WindowGroup {
             SplashScreen(showOnboarding: $showOnboarding, persistenceController: persistenceController)
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(WebViewModel(appDelegate: appDelegate))
+                
         }
     }
 }

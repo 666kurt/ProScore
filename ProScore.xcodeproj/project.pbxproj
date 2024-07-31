@@ -57,6 +57,7 @@
 		FC3AC2102C5184F8006050EC /* CustomTabIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC20F2C5184F8006050EC /* CustomTabIndicator.swift */; };
 		FC3AC2122C522B3F006050EC /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC3AC2112C522B3F006050EC /* SplashScreen.swift */; };
 		FCCF31892C5AA067001AB18C /* WebViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCF31882C5AA067001AB18C /* WebViewModel.swift */; };
+		FCCF318B2C5ACA7D001AB18C /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCCF318A2C5ACA7D001AB18C /* WebView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +104,7 @@
 		FC3AC20F2C5184F8006050EC /* CustomTabIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabIndicator.swift; sourceTree = "<group>"; };
 		FC3AC2112C522B3F006050EC /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		FCCF31882C5AA067001AB18C /* WebViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewModel.swift; sourceTree = "<group>"; };
+		FCCF318A2C5ACA7D001AB18C /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -362,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				FCCF31882C5AA067001AB18C /* WebViewModel.swift */,
+				FCCF318A2C5ACA7D001AB18C /* WebView.swift */,
 			);
 			path = WebViewSystem;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC26DBE82C4D6D9A00BF4F1F /* TeamScreen.swift in Sources */,
+				FCCF318B2C5ACA7D001AB18C /* WebView.swift in Sources */,
 				FC3AC1D82C4F8F12006050EC /* Event+CoreDataProperties.swift in Sources */,
 				FC3AC1B62C4ED033006050EC /* TeamListSheetView.swift in Sources */,
 				FC3AC1DE2C4F9C12006050EC /* CalendarSheetView.swift in Sources */,
