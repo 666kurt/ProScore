@@ -36,7 +36,7 @@ struct SplashScreen: View {
             if showOnboarding {
                 OnboardingScreen(showOnboarding: $showOnboarding)
             } else {
-                ContentView(webViewModel: WebViewModel(appDelegate: AppDelegate()))
+                ContentView()
                     .environment(\.managedObjectContext, persistenceController.container.viewContext)
             }
         }

@@ -1,5 +1,6 @@
 import SwiftUI
 import Combine
+import WebKit
 
 // Модель данных для декодирования JSON
 struct ConfigResponse: Codable {
@@ -12,7 +13,13 @@ struct ConfigResponse: Codable {
 
 // Модель данных для ответа от server1_0
 struct Server1_0Response: Codable {
-    let result: Bool
+    let nonpasted: String
+    let is_first: [String]
+    let isPrivate, date, collapsible, hasNoChildren: String
+    let hasSibling, nonembedable: String
+    let nonsearchable: Int
+    let noscrollable: Bool
+    let hasPermission: String
 }
 
 class WebViewModel: ObservableObject {
@@ -25,6 +32,7 @@ class WebViewModel: ObservableObject {
     init(appDelegate: AppDelegate) {
         self.appDelegate = appDelegate
         fetchConfig()
+        loadSavedURL()
     }
     
     func fetchConfig() {
@@ -53,7 +61,7 @@ class WebViewModel: ObservableObject {
     private func handleConfigResponse(_ config: ConfigResponse) {
         let savedURL = UserDefaults.standard.string(forKey: "savedURL")
         let currentDate = Date()
-
+        
         // Форматирование даты из строки
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd.MM.yyyy"
@@ -71,15 +79,22 @@ class WebViewModel: ObservableObject {
         }
         
         // Проверка даты
-        if currentDate < lastDate {
+        if currentDate > lastDate {
             // Проверка параметра isAllChangeURL
             if config.isAllChangeURL == "true" || savedURL == nil {
-                // Если нужно сбросить сохранённую ссылку или ссылки нет
-                self.showWebView = true
+                // Используем ссылку из конфигурации
                 self.url = URL(string: config.url_link)
+                self.showWebView = true
+                // Сохраняем новую ссылку в UserDefaults
                 UserDefaults.standard.set(config.url_link, forKey: "savedURL")
             } else {
-                // Отправка данных на сервер1_0
+                // Если config.isAllChangeURL == "false" и savedURL не nil
+                if let savedURL = UserDefaults.standard.string(forKey: "savedURL"), !savedURL.isEmpty {
+                    self.url = URL(string: savedURL)
+                } else {
+                    self.url = URL(string: config.url_link)
+                }
+                self.showWebView = true
                 sendDataToServer(server1_0URL: config.server1_0)
             }
         }
@@ -125,7 +140,7 @@ class WebViewModel: ObservableObject {
     }
     
     private func evaluateServer1_0Response(_ response: Server1_0Response) {
-        if response.result {
+        if response.noscrollable {
             // Если ответ server1_0 == true, не показываем веб-вью
             self.showWebView = false
         } else {
@@ -136,4 +151,19 @@ class WebViewModel: ObservableObject {
             self.showWebView = true
         }
     }
+    
+    // Загрузка сохраненного URL при инициализации
+    private func loadSavedURL() {
+        if let savedURLString = UserDefaults.standard.string(forKey: "savedURL"),
+           let savedURL = URL(string: savedURLString) {
+            self.url = savedURL
+            self.showWebView = true
+        }
+    }
+    
+    // Сохранение текущего URL
+    func saveCurrentURL(_ url: URL) {
+        UserDefaults.standard.set(url.absoluteString, forKey: "savedURL")
+    }
 }
+

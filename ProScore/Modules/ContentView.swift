@@ -6,8 +6,9 @@ struct ContentView: View {
     @StateObject var calendarViewModel = CalendarViewModel()
     @StateObject var statisticsViewModel = StatisticsViewModel()
     
-    @StateObject var webViewModel: WebViewModel
-
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    @StateObject var webViewModel: WebViewModel = WebViewModel(appDelegate: AppDelegate())
+    
     var body: some View {
         ZStack {
             TabView(selection: $router.selectedScreen) {
@@ -17,21 +18,21 @@ struct ContentView: View {
                     }
                     .tag(Screens.team)
                     .environmentObject(teamViewModel)
-
+                
                 CalendarScreen()
                     .tabItem {
                         Label("Calendar", systemImage: "calendar")
                     }
                     .tag(Screens.calendar)
                     .environmentObject(calendarViewModel)
-
+                
                 StatisticsScreen()
                     .tabItem {
                         Label("Statistics", systemImage: "chart.line.uptrend.xyaxis")
                     }
                     .tag(Screens.statistics)
                     .environmentObject(statisticsViewModel)
-
+                
                 SettingsScreen()
                     .tabItem {
                         Label("Settings", systemImage: "gearshape.fill")
@@ -49,12 +50,11 @@ struct ContentView: View {
             
             // Отображение WebView
             if webViewModel.showWebView, let url = webViewModel.url {
-                WebView(url: url)
-                    .edgesIgnoringSafeArea(.all)
+                WebView(url: url, viewModel: webViewModel)
             }
         }
     }
-
+    
     private func setupTabBarAppearance() {
         let appearance = UITabBarAppearance()
         appearance.backgroundColor = UIColor(Color.theme.other.tabbar)
@@ -68,8 +68,9 @@ struct ContentView: View {
     }
 }
 
+
 #Preview {
-    ContentView(webViewModel: WebViewModel(appDelegate: AppDelegate()))
+    ContentView()
         .environmentObject(Router.shared)
         .environmentObject(TeamViewModel())
         .environmentObject(CalendarViewModel())

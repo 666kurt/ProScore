@@ -21,7 +21,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         AppMetrica.activate(with: configuration!)
         
         collectDeviceInfo()
-        // printDeviceInfo()
         
         return true
     }
@@ -120,7 +119,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     }
     
     // Установленные прилы
-    #warning("Доделать!")
     func fetchInstalledApps() -> [String: String] {
         return [:]
     }
@@ -131,7 +129,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
         return keyboardSettings
     }
     
-    #warning("Доделать!")
     // Состояние ВПН
     func isVPNConnected() -> Bool {
         return false
@@ -145,13 +142,6 @@ class AppDelegate: NSObject, UIApplicationDelegate {
     // Проверка на скринкаст
     func isScreenRecording() -> Bool {
         return UIScreen.main.isCaptured
-    }
-    
-    #warning("Удалить, для теста")
-    func printDeviceInfo() {
-        for (key, value) in deviceInfo {
-            print("\(key): \(value)")
-        }
     }
     
 }
